@@ -1,0 +1,149 @@
+server:
+  port: 8000
+  http2:
+    # 启用 HTTP/2 支持，提升传输效率
+    enabled: true
+  compression:
+    # 启用 GZIP 压缩，减少传输数据量
+    enabled: true
+    # 需要压缩的 MIME 类型
+    mime-types: text/html, text/xml, text/plain, application/json
+    # 最小压缩响应大小（字节）
+  undertow:
+    websockets:
+      buffer-pool:
+        direct: false  # 是否使用直接内存
+        buffer-size: 1024  # 每个缓冲区大小
+        max-pool-size: 2048  # 最大池大小
+
+spring:
+  freemarker:
+    check-template-location: false
+  profiles:
+    # 激活的环境，如果需要 quartz 分布式支持，需要修改 active: dev,quartz
+    active: dev
+  data:
+    redis:
+      repositories:
+        enabled: false
+      #数据库索引
+      database: ${REDIS_DB:0}
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PWD:}
+      #连接超时时间
+      timeout: 5000
+      # 连接池配置
+      lettuce:
+        pool:
+          # 连接池最大连接数
+          max-active: 30
+          # 连接池最大阻塞等待时间（毫秒），负值表示没有限制
+          max-wait: -1
+          # 连接池中的最大空闲连接数
+          max-idle: 20
+          # 连接池中的最小空闲连接数
+          min-idle: 1
+#  pid:
+#    file: /自行指定位置/eladmin.pid
+
+  #配置 Jpa
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    open-in-view: true
+    properties:
+      hibernate:
+        #format_sql: true
+        dialect:
+        session_factory:
+          #statement_inspector: bean:compositeStatementInspector
+        #multiTenancy: DISCRIMINATOR
+        #tenant_identifier_resolver: cc.efit.config.db.CurrentOrgIdentifierResolver
+
+task:
+  pool:
+    # 核心线程池大小
+    core-pool-size: 10
+    # 最大线程数
+    max-pool-size: 30
+    # 活跃时间
+    keep-alive-seconds: 60
+    # 队列容量
+    queue-capacity: 50
+
+#邮箱验证码有效时间/秒
+code:
+  expiration: 300
+
+#密码加密传输，前端公钥加密，后端私钥解密
+rsa:
+  private_key: MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEA0vfvyTdGJkdbHkB8mp0f3FE0GYP3AYPaJF7jUd1M0XxFSE2ceK3k2kw20YvQ09NJKk+OMjWQl9WitG9pB6tSCQIDAQABAkA2SimBrWC2/wvauBuYqjCFwLvYiRYqZKThUS3MZlebXJiLB+Ue/gUifAAKIg1avttUZsHBHrop4qfJCwAI0+YRAiEA+W3NK/RaXtnRqmoUUkb59zsZUBLpvZgQPfj1MhyHDz0CIQDYhsAhPJ3mgS64NbUZmGWuuNKp5coY2GIj/zYDMJp6vQIgUueLFXv/eZ1ekgz2Oi67MNCk5jeTF2BurZqNLR3MSmUCIFT3Q6uHMtsB9Eha4u7hS31tj1UWE+D+ADzp59MGnoftAiBeHT7gDMuqeJHPL4b+kC+gzV4FGTfhR9q3tTbklZkD2A==
+
+# 文件存储路径
+file:
+  mac:
+    path: ~/file/
+    avatar: ~/avatar/
+    base: ~/base/
+  linux:
+    path: /home/callcenter/file/
+    avatar: /home/callcenter/avatar/
+    base: /home/callcenter/base/
+  windows:
+    path: E:\eladmin\file\
+    avatar: E:\eladmin\avatar\
+    base: E:\eladmin\base\
+  # 文件大小 /M
+  maxSize: 100
+  avatarMaxSize: 5
+#租户过滤
+org:
+  enable: true
+  ignore-table:
+    - code_column
+    - code_config
+    - sys_dict
+    - sys_dict_detail
+    - sys_log
+    - sys_menu
+    - efit_sys_org
+    - efit_sys_org_package
+    - efit_sys_org_package_menus
+    - efit_template_words
+    - efit_template_words_category
+
+#数据权限过滤
+data:
+  enable: true
+  ignore-table:
+    - code_column
+    - code_config
+    - sys_dict
+    - sys_dict_detail
+    - sys_log
+    - sys_menu
+    - sys_roles_depts
+    - sys_roles_menus
+    - sys_users_jobs
+    - sys_users_roles
+    - efit_sys_org
+    - efit_sys_org_package
+    - efit_sys_org_package_menus
+    - efit_template_words
+    - efit_template_words_category
+
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:8080/xxl-job-admin
+      accessToken: 7ab70f61dfd7d8c0f41b55e407254113
+    executor:
+      appname: system-server
+      ip: 127.0.0.1
+      port: 9000
+
+nlu:
+  model:
+    url: http://127.0.0.1:8001/api

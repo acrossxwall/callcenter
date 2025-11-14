@@ -1,0 +1,18 @@
+package ${packageName}.repository;
+
+import ${packageName}.domain.${ClassName};
+import cc.efit.db.base.LogicDeletedRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+#if($table.sub)
+import ${packageName}.domain.${subClassName};
+#end
+
+/**
+ * ${functionName}Repository接口
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface ${ClassName}Repository extends LogicDeletedRepository<${ClassName}, ${pkColumn.javaType}>, JpaSpecificationExecutor<${ClassName}> {
+
+}

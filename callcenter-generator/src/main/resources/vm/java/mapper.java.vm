@@ -1,0 +1,15 @@
+package ${packageName}.service.mapstruct;
+
+import cc.efit.db.base.BaseMapper;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.service.dto.${ClassName}Dto;
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
+/**
+* @author ${author}
+* @date ${datetime}
+**/
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface ${ClassName}Mapper extends BaseMapper<${ClassName}Dto, ${ClassName}> {
+
+}

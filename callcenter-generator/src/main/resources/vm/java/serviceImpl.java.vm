@@ -1,0 +1,176 @@
+package ${packageName}.service.impl;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+#if($table.tplCategory == 'sub')
+import java.util.ArrayList;
+import org.apache.commons.lang3.StringUtils;
+import ${packageName}.domain.${subClassName};
+#end
+import org.springframework.transaction.annotation.Transactional;
+import ${packageName}.service.mapstruct.${ClassName}Mapper;
+import ${packageName}.repository.${ClassName}Repository;
+import ${packageName}.service.dto.${ClassName}Dto;
+import ${packageName}.service.dto.${ClassName}QueryCriteria;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.service.${ClassName}Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import cc.efit.utils.PageResult;
+import cc.efit.utils.PageUtil;
+import cc.efit.db.utils.QueryHelp;
+import cc.efit.utils.FileUtil;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.io.IOException;
+import jakarta.servlet.http.HttpServletResponse;
+import java.util.LinkedHashMap;
+
+/**
+ * ${functionName}Service业务层处理
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+@RequiredArgsConstructor
+public class ${ClassName}ServiceImpl implements ${ClassName}Service  {
+
+    private final ${ClassName}Repository ${className}Repository;
+    private final ${ClassName}Mapper ${className}Mapper;
+
+    @Override
+    public PageResult<${ClassName}Dto> queryAll(${ClassName}QueryCriteria criteria, Pageable pageable){
+        Sort sort = Sort.by(Sort.Direction.DESC,"id");
+        pageable =   PageRequest.of(pageable.getPageNumber(), pageable.getPageSize() , sort  );
+        Page<${ClassName}> page = ${className}Repository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
+        return PageUtil.toPage(page.map(${className}Mapper::toDto));
+    }
+
+    @Override
+    public List<${ClassName}Dto> queryAll(${ClassName}QueryCriteria criteria){
+        return ${className}Mapper.toDto(${className}Repository.findAll((root, criteriaQuery, criteriaBuilder) -> QueryHelp.getPredicate(root,criteria,criteriaBuilder)));
+    }
+    /**
+     * 查询${functionName}
+     * 
+     * @param ${pkColumn.javaField} ${functionName}主键
+     * @return ${functionName}
+     */
+    @Override
+    public ${ClassName}Dto select${ClassName}ById(${pkColumn.javaType} ${pkColumn.javaField})  {
+        return ${className}Mapper.toDto(${className}Repository.findById(${pkColumn.javaField}).orElseGet(${ClassName}::new));
+    }
+
+
+    /**
+     * 新增${functionName}
+     * 
+     * @param ${className} ${functionName}
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void insert${ClassName}(${ClassName} ${className}) {
+#if($table.tplCategory == 'sub' )
+        int rows = ${className}Mapper.insert${ClassName}(${className});
+        insert${subClassName}(${className});
+#else
+        ${className}Repository.save(${className});
+#end
+    }
+
+    /**
+     * 修改${functionName}
+     * 
+     * @param ${className} ${functionName}
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void update${ClassName}(${ClassName} ${className}) {
+#if($table.tplCategory == 'sub')
+        ${className}Mapper.delete${subClassName}ById(${className}.get${pkColumn.capJavaField}());
+        insert${subClassName}(${className});
+#end
+        ${className}Repository.save(${className});
+    }
+
+    /**
+     * 批量删除${functionName}
+     * 
+     * @param ${pkColumn.javaField}s 需要删除的${functionName}主键
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete${ClassName}ByIds(${pkColumn.javaType}[] ${pkColumn.javaField}s) {
+#if($table.tplCategory == 'sub')
+        ${className}Mapper.delete${subClassName}By${subTableFkClassName}s(${pkColumn.javaField}s);
+#end
+        for (${pkColumn.javaType} ${pkColumn.javaField} : ${pkColumn.javaField}s) {
+            delete${ClassName}ById(${pkColumn.javaField});
+        }
+    }
+
+    /**
+     * 删除${functionName}信息
+     * 
+     * @param ${pkColumn.javaField} ${functionName}主键
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void delete${ClassName}ById(${pkColumn.javaType} ${pkColumn.javaField}) {
+#if($table.tplCategory == 'sub')
+        ${className}Repository.delete${subClassName}By${subTableFkClassName}(${pkColumn.javaField});
+#end
+        ${className}Repository.logicDeleteById(${pkColumn.javaField});
+    }
+
+
+    @Override
+    public void download(List<${ClassName}Dto> all, HttpServletResponse response) throws IOException {
+        List<Map<String, Object>> list = new ArrayList<>();
+        for (${ClassName}Dto ${className} : all) {
+            Map<String,Object> map = new LinkedHashMap<>();
+#foreach ($column in $columns)
+#if($column.idPk != '1' && $column.superField != '1')
+#if($column.javaField.length() > 2 && $column.javaField.substring(1,2).matches("[A-Z]"))
+#set($AttrName=$column.javaField)
+#else
+#set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
+#end
+            map.put("${column.javaField}",  ${className}.get${AttrName}());
+#end
+#end
+            list.add(map);
+        }
+        FileUtil.downloadExcel(list, response);
+    }
+
+#if($table.tplCategory == 'sub')
+
+    /**
+     * 新增${subTable.functionName}信息
+     * 
+     * @param ${className} ${functionName}对象
+     */
+    public void insert${subClassName}(${ClassName} ${className})  {
+        List<${subClassName}> ${subclassName}List = ${className}.get${subClassName}List();
+        ${pkColumn.javaType} ${pkColumn.javaField} = ${className}.get${pkColumn.capJavaField}();
+        if (StringUtils.isNotBlank(${subclassName}List))
+        {
+            List<${subClassName}> list = new ArrayList<${subClassName}>();
+            for (${subClassName} ${subclassName} : ${subclassName}List)
+            {
+                ${subclassName}.set${subTableFkClassName}(${pkColumn.javaField});
+                list.add(${subclassName});
+            }
+            if (list.size() > 0)
+            {
+                ${className}Mapper.batch${subClassName}(list);
+            }
+        }
+    }
+#end
+}

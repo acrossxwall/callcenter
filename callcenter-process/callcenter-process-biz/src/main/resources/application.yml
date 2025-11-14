@@ -1,0 +1,13 @@
+spring:
+  application:
+    name:  process-server
+  data:
+    redis:
+      host: 192.168.2.14
+      port: 6379
+      password: 123456
+      database: 0
+
+grpc:
+  server:
+    port: 9090

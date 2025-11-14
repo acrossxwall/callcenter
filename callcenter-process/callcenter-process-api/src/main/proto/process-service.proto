@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package cc.efit.process.api;
+
+option java_package = "cc.efit.process.api";
+option java_outer_classname = "ProcessServiceProto";
+
+service ProcessService {
+    rpc chatProcess (ChatProcessReq) returns (ChatProcessRes);
+}
+
+message ChatProcessReq {
+    int32 action = 1;
+    string content = 2;
+    string callId = 3;
+    int32 callTemplateId = 4;
+    map<string, string> customerInfo = 5;
+}
+
+// 聊天响应
+message ChatProcessRes {
+  string callId = 1;
+  repeated ActionData actions = 2;
+  DialogueFlowData flowData = 3;
+  MatchResult matchResult = 4;
+}
+
+message ActionData {
+  int32 action = 1;
+  oneof content {
+    CreateChannelAction createChannel = 2;
+    HangupAction hangup = 3;
+    PlayFileAction playFile = 4;
+    PlayTtsAction playTts = 5;
+    TransferAction transfer = 6;
+  }
+}
+message CreateChannelAction {
+    int32 action = 1;
+}
+message HangupAction {
+    int32 action = 1;
+    string reason=2;
+}
+message PlayFileAction {
+    int32 action = 1;
+    string filePath = 2;
+    int32 enableInterrupt=3;
+    string content=4;
+}
+message PlayTtsAction {
+    int32 action = 1;
+    int32 enableInterrupt=2;
+    string content = 3;
+}
+message TransferAction {
+    int32 action = 1;
+    string number = 2;
+    int32 type = 3;
+    int32 agentGroupId = 4;
+}
+
+message MatchResult {
+    int32 flowId = 1;
+    string keyword = 2;
+    int32 intentionId = 3;
+    string intentionName = 4;
+    bool  keywordMatch = 5;
+    bool  nluMatch = 6;
+    string nluMatchCode = 7;
+}
+message DialogueFlowData {
+  int32 nodeId = 1;
+  string nodeName = 2;
+  string nodeLabel = 3;
+  string levelName = 4;
+}

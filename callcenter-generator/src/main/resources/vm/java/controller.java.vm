@@ -1,0 +1,108 @@
+package ${packageName}.rest;
+
+import cc.efit.res.R;
+import java.util.List;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.service.${ClassName}Service;
+import ${packageName}.service.dto.${ClassName}QueryCriteria;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import cc.efit.annotation.Log;
+#if($table.tplCategory == 'crud' || $table.tplCategory == 'sub')
+import org.springframework.data.domain.Pageable;
+#elseif($table.tree)
+import cc.efit.utils.PageUtil;
+#end
+import java.io.IOException;
+
+/**
+ * ${functionName}Controller
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/${moduleName}/${businessName}")
+public class ${ClassName}Controller {
+
+    private final ${ClassName}Service ${className}Service;
+
+    /**
+     * 查询${functionName}列表
+     */
+    @PreAuthorize("@cc.check('${permissionPrefix}:list')")
+    @GetMapping("/list")
+#if($table.tplCategory == 'crud' || $table.tplCategory == 'sub')
+    public R list(${ClassName}QueryCriteria criteria, Pageable pageable) {
+        return R.ok(${className}Service.queryAll(criteria,pageable));
+    }
+#elseif($table.tree)
+    public R list(${ClassName}QueryCriteria criteria) {
+        List<${ClassName}Dto> list = ${className}Service.queryAll(criteria, true);
+        return R.ok(PageUtil.toPage(list, list.size()));
+    }
+#end
+
+    /**
+     * 导出${functionName}列表
+     */
+    @PreAuthorize("@cc.check('${permissionPrefix}:export')")
+    @Log("${functionName}导出" )
+    @PostMapping("/export")
+    public void export${ClassName}(HttpServletResponse response, ${ClassName}QueryCriteria criteria) throws IOException {
+        ${className}Service.download(${className}Service.queryAll(criteria), response);
+    }
+
+    /**
+     * 获取${functionName}详细信息
+     */
+    @PreAuthorize("@cc.check('${permissionPrefix}:query')")
+    @GetMapping(value = "/{${pkColumn.javaField}}")
+    public R getInfo(@PathVariable("${pkColumn.javaField}") ${pkColumn.javaType} ${pkColumn.javaField}) {
+        return R.ok(${className}Service.select${ClassName}ById(${pkColumn.javaField}));
+    }
+
+    /**
+     * 新增${functionName}
+     */
+    @PreAuthorize("@cc.check('${permissionPrefix}:add')")
+    @Log("${functionName}新增" )
+    @PostMapping
+    public R add(@RequestBody ${ClassName} ${className}) {
+        ${className}Service.insert${ClassName}(${className});
+        return R.ok();
+    }
+
+    /**
+     * 修改${functionName}
+     */
+    @PreAuthorize("@cc.check('${permissionPrefix}:edit')")
+    @Log("${functionName}修改" )
+    @PutMapping
+    public R edit(@RequestBody ${ClassName} ${className}) {
+        ${className}Service.update${ClassName}(${className});
+        return R.ok();
+    }
+
+    /**
+     * 删除${functionName}
+     */
+    @PreAuthorize("@cc.check('${permissionPrefix}:remove')")
+    @Log("${functionName}删除" )
+    @DeleteMapping("/{${pkColumn.javaField}}")
+    public R removeById(@PathVariable ${pkColumn.javaType}  ${pkColumn.javaField} ) {
+        ${className}Service.delete${ClassName}ById(${pkColumn.javaField});
+        return R.ok();
+    }
+}

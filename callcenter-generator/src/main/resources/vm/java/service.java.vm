@@ -1,0 +1,78 @@
+package ${packageName}.service;
+
+import java.util.List;
+import ${packageName}.domain.${ClassName};
+import ${packageName}.service.dto.${ClassName}Dto;
+import ${packageName}.service.dto.${ClassName}QueryCriteria;
+import org.springframework.data.domain.Pageable;
+import java.util.Map;
+import java.util.List;
+import java.io.IOException;
+import jakarta.servlet.http.HttpServletResponse;
+import cc.efit.utils.PageResult;
+/**
+ * ${functionName}Service接口
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface ${ClassName}Service {
+
+    /**
+    * 查询数据分页
+    * @param criteria 条件
+    * @param pageable 分页参数
+    */
+    PageResult<${ClassName}Dto> queryAll(${ClassName}QueryCriteria criteria, Pageable pageable);
+
+    /**
+    * 查询所有数据不分页
+    * @param criteria 条件参数
+    * @return List<${className}Dto>
+    */
+    List<${ClassName}Dto> queryAll(${ClassName}QueryCriteria criteria);
+    /**
+     * 查询${functionName}
+     * 
+     * @param ${pkColumn.javaField} ${functionName}主键
+     * @return ${functionName}
+     */
+    ${ClassName}Dto select${ClassName}ById(${pkColumn.javaType} ${pkColumn.javaField});
+
+
+    /**
+     * 新增${functionName}
+     * 
+     * @param ${className} ${functionName}
+     */
+    void insert${ClassName}(${ClassName} ${className});
+
+    /**
+     * 修改${functionName}
+     * 
+     * @param ${className} ${functionName}
+     */
+    void update${ClassName}(${ClassName} ${className});
+
+    /**
+     * 批量删除${functionName}
+     * 
+     * @param ${pkColumn.javaField}s 需要删除的${functionName}主键集合
+     */
+    void delete${ClassName}ByIds(${pkColumn.javaType}[] ${pkColumn.javaField}s);
+
+    /**
+     * 删除${functionName}信息
+     * 
+     * @param ${pkColumn.javaField} ${functionName}主键
+     */
+    void delete${ClassName}ById(${pkColumn.javaType} ${pkColumn.javaField});
+
+    /**
+    * 导出数据
+    * @param all 待导出的数据
+    * @param response /
+    * @throws IOException /
+    */
+    void download(List<${ClassName}Dto> all, HttpServletResponse response) throws IOException;
+}

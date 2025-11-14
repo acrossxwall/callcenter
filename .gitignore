@@ -1,0 +1,14 @@
+### IDEA ###
+.idea/*
+*.iml
+*/target/*
+**/target/*
+*/*.iml
+/.gradle/
+/application.pid
+*.log
+*.classpath
+*.project
+*.settings
+*.factorypath
+*.class

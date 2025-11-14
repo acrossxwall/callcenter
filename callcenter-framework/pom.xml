@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cc.efit</groupId>
+        <artifactId>callcenter</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>callcenter-framework</artifactId>
+    <packaging>pom</packaging>
+    <name>基础框架</name>
+    <modules>
+        <module>callcenter-db-starter</module>
+        <module>callcenter-json-starter</module>
+        <module>callcenter-redis-starter</module>
+        <module>callcenter-core-starter</module>
+        <module>callcenter-esl-starter</module>
+        <module>callcenter-timer-starter</module>
+        <module>callcenter-web-starter</module>
+        <module>callcenter-org-starter</module>
+        <module>callcenter-data-starter</module>
+        <module>callcenter-job-starter</module>
+        <module>callcenter-utils-starter</module>
+        <module>callcenter-nlu-starter</module>
+    </modules>
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>

@@ -1,0 +1,37 @@
+server:
+  port: 8001
+spring:
+  data:
+    redis:
+      host: 192.168.2.18
+      port: 6379
+      password: 123456
+      database: 0
+  rabbitmq:
+    host: 192.168.2.18
+    port: 5672
+    username: admin
+    password: admin
+
+grpc:
+  client:
+    process-service:
+      address: 'static://127.0.0.1:9090'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext
+inbound:
+  freeswitch:
+    host: 192.168.2.18
+    port: 8021
+    password: ClueCon
+    timeoutSeconds: 30
+    #eventSubscriptions: CHANNEL_CREATE CHANNEL_ANSWER CHANNEL_HANGUP CUSTOM
+    eventSubscriptions: ALL
+  callback:
+    corePoolSize: 10
+    maxPoolSize: 10000
+    queueCapacity: 0
+nfs:
+  path:
+    base: /home/user/nfs/

@@ -1,0 +1,51 @@
+package ${packageName}.service.dto;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import cc.efit.db.base.BaseQueryReq;
+import java.time.LocalDateTime;
+import java.math.BigDecimal;
+import java.util.List;
+import cc.efit.db.annotation.Query;
+
+/**
+ * @author ${author}
+ * @date ${datetime}
+ **/
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class ${ClassName}QueryCriteria extends BaseQueryReq {
+
+#foreach ($column in $columns)
+#if( $column.queryType == 'EQ')
+    /** 精确 */
+    @Query
+    private $column.javaType   $column.javaField ;
+#end
+#if( $column.queryType == 'LIKE')
+    /** 模糊 */
+    @Query(type = Query.Type.INNER_LIKE)
+    private $column.javaType  $column.javaField ;
+#end
+#if( $column.queryType == 'NE')
+    /** 不等于 */
+    @Query(type = Query.Type.NOT_EQUAL)
+    private $column.javaType  $column.javaField;
+#end
+#if( $column.queryType == 'GT')
+    /** 大于等于 */
+    @Query(type = Query.Type.GREATER_THAN)
+    private $column.javaType  $column.javaField;
+#end
+#if( $column.queryType == 'LT')
+    /** 小于等于 */
+    @Query(type = Query.Type.LESS_THAN)
+    private $column.javaType  $column.javaField;
+#end
+#if( $column.queryType == 'BETWEEN')
+    /** BETWEEN */
+    @Query(type = Query.Type.BETWEEN)
+    private List<$column.javaType> $column.javaField;
+#end
+#end
+}

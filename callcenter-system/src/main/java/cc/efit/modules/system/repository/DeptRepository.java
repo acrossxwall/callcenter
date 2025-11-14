@@ -1,0 +1,73 @@
+/*
+ *  Copyright 2019-2025 Zheng Jie
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+package cc.efit.modules.system.repository;
+
+import cc.efit.db.base.LogicDeletedRepository;
+import cc.efit.modules.system.domain.Dept;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import java.util.List;
+import java.util.Set;
+
+/**
+*
+* @date 2019-03-25
+*/
+public interface DeptRepository extends LogicDeletedRepository<Dept, Integer>, JpaSpecificationExecutor<Dept> {
+
+    /**
+     * 根据 PID 查询
+     * @param id pid
+     * @return /
+     */
+    List<Dept> findByPid(Integer id);
+
+    /**
+     * 获取顶级部门
+     * @return /
+     */
+    List<Dept> findByPidIsNullAndStatus(Integer status);
+
+    List<Dept> findByPidAndStatus(Integer pid,Integer status);
+
+    /**
+     * 根据角色ID 查询
+     * @param roleId 角色ID
+     * @return /
+     */
+    @Query(value = """
+            select d.* from sys_dept d, sys_roles_depts r where
+             d.id = r.dept_id and r.role_id = ?1
+            """, nativeQuery = true)
+    Set<Dept> findByRoleId(Integer roleId);
+
+    /**
+     * 判断是否存在子节点
+     * @param pid /
+     * @return /
+     */
+    int countByPid(Integer pid);
+
+    /**
+     * 根据ID更新sub_count
+     * @param count /
+     * @param id /
+     */
+    @Modifying
+    @Query(value = " update Dept set subCount = ?1 where id = ?2 " )
+    void updateSubCntById(Integer count, Integer id);
+}

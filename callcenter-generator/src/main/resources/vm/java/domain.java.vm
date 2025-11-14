@@ -1,0 +1,41 @@
+package ${packageName}.domain;
+
+#foreach ($import in $importList)
+import ${import};
+#end
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import cc.efit.db.base.BaseCommonConstant;
+import cc.efit.data.permission.DataPermissionEntity;
+import jakarta.persistence.*;
+import org.hibernate.annotations.SQLRestriction;
+import java.io.Serializable;
+/**
+ * ${functionName}对象 ${tableName}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Entity
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Table(name="${tableName}")
+@SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
+public class ${ClassName} extends DataPermissionEntity implements Serializable {
+
+#foreach ($column in $columns)
+#if($column.superField!=1)
+    /** $column.columnComment */
+#if( $column.isPk == '1')
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+#end
+    private $column.javaType $column.javaField;
+#end
+#end
+#if($table.sub)
+    /** $table.subTable.functionName信息 */
+    private List<${subClassName}> ${subclassName}List;
+
+#end
+}

@@ -1,0 +1,22 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://192.168.247.129:5432/callcenter
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  data:
+    redis:
+      host: 192.168.247.129
+      port: 6379
+      password: 123456
+      database: 0
+  rabbitmq:
+    host: 192.168.247.129
+    port: 5672
+    username: admin
+    password: admin
+
+nfs:
+  path:
+    base: /home/user/nfs/

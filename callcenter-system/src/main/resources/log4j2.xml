@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="https://logging.apache.org/xml/ns"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="
+                   https://logging.apache.org/xml/ns
+                   https://logging.apache.org/xml/ns/log4j-config-2.xsd">
+    <Properties>
+        <!-- 文件输出格式 -->
+        <Property name="PATTERN_CONSOLE">%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} --- [%thread] %green{%logger{50}}.%yellow{%M}:%cyan{%L} - %msg%n</Property>
+        <Property name="PATTERN_LOG">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level --- [%thread] %logger{50}.%M:%L - %msg%n</Property>
+
+        <!-- 文件路径 -->
+        <Property name="FILE_PATH">./logs/</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 控制台输出 -->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="${PATTERN_CONSOLE}"/>
+        </Console>
+
+        <!-- Info日志 -->
+        <RollingFile name="INFO-FILE" fileName="${FILE_PATH}/info.log"
+                     filePattern="${FILE_PATH}/info.%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${PATTERN_LOG}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+        <!-- Warn日志 -->
+        <RollingFile name="WARN-FILE" fileName="${FILE_PATH}/warn.log"
+                     filePattern="${FILE_PATH}/warn.%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${PATTERN_LOG}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+        <!-- Error日志 -->
+        <RollingFile name="ERROR-FILE" fileName="${FILE_PATH}/error.log"
+                     filePattern="${FILE_PATH}/error.%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${PATTERN_LOG}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="INFO-FILE"/>
+            <AppenderRef ref="WARN-FILE"/>
+            <AppenderRef ref="ERROR-FILE"/>
+        </Root>
+    </Loggers>
+</Configuration>
