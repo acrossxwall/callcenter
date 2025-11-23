@@ -24,6 +24,7 @@
         <module>callcenter-job-starter</module>
         <module>callcenter-utils-starter</module>
         <module>callcenter-nlu-starter</module>
+        <module>callcenter-notify-starter</module>
     </modules>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
