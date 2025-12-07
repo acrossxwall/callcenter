@@ -15,8 +15,9 @@
  */
 package cc.efit.modules.system.service.impl;
 
+import cc.efit.common.utils.*;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.enums.CommonStatusEnum;
+import cc.efit.common.enums.CommonStatusEnum;
 import cc.efit.web.enums.UserTypeEnum;
 import cc.efit.modules.security.service.dto.JwtUserDto;
 import cc.efit.modules.system.service.dto.*;
@@ -25,19 +26,18 @@ import cc.efit.redis.utils.RedisUtils;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.collection.CollectionUtil;
 import lombok.RequiredArgsConstructor;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.security.service.UserCacheManager;
 import cc.efit.modules.security.service.dto.AuthorityDto;
 import cc.efit.modules.system.domain.Menu;
 import cc.efit.modules.system.domain.Role;
-import cc.efit.exception.EntityExistException;
+import cc.efit.common.exception.EntityExistException;
 import cc.efit.modules.system.domain.User;
 import cc.efit.modules.system.repository.RoleRepository;
 import cc.efit.modules.system.repository.UserRepository;
 import cc.efit.modules.system.service.RoleService;
 import cc.efit.modules.system.service.mapstruct.RoleMapper;
 import cc.efit.modules.system.service.mapstruct.RoleSmallMapper;
-import cc.efit.utils.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

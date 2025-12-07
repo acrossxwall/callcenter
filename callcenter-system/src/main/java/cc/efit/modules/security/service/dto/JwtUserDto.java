@@ -15,7 +15,7 @@
  */
 package cc.efit.modules.security.service.dto;
 
-import cc.efit.enums.CommonStatusEnum;
+import cc.efit.common.enums.CommonStatusEnum;
 import cc.efit.web.base.UserDataScope;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -9,7 +9,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 黑名单库表对象 efit_call_black_info
  * 
@@ -21,7 +20,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_black_info")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class BlackInfo extends DataPermissionEntity implements Serializable {
+public class BlackInfo extends DataPermissionEntity {
 
     /** 主键ID */
     @Id

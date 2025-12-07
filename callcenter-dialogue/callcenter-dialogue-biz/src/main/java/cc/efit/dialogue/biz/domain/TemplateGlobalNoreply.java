@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 无应答全局设置对象 efit_template_global_noreply
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_global_noreply")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateGlobalNoreply extends DataPermissionEntity implements Serializable {
+public class TemplateGlobalNoreply extends DataPermissionEntity {
 
     /** 主键 */
     @Id

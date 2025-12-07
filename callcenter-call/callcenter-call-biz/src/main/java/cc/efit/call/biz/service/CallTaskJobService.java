@@ -5,11 +5,10 @@ import cc.efit.call.biz.domain.CallTaskJob;
 import cc.efit.call.biz.service.dto.CallTaskJobDto;
 import cc.efit.call.biz.service.dto.CallTaskJobQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 外呼任务job表Service接口
  * 

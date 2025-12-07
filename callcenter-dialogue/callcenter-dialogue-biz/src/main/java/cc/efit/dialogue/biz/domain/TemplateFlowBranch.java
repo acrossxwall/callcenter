@@ -9,7 +9,6 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.type.SqlTypes;
 
-import java.io.Serializable;
 /**
  * 节点意图分支对象 efit_template_flow_branch
  * 
@@ -24,7 +23,7 @@ import java.io.Serializable;
 @Table(name="efit_template_flow_branch")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
 @Builder
-public class TemplateFlowBranch extends DataPermissionEntity implements Serializable {
+public class TemplateFlowBranch extends DataPermissionEntity {
 
     /** 主键 */
     @Id

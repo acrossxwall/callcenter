@@ -1,6 +1,5 @@
 package cc.efit.process.biz.predict.nlu;
 
-import cc.efit.dialogue.api.vo.global.TemplateGlobalInteractionInfo;
 import cc.efit.dialogue.api.vo.global.TemplateGlobalNluInfo;
 import cc.efit.dialogue.api.vo.node.TemplateNodeBranchInfo;
 import cc.efit.nlu.INluModelService;
@@ -10,7 +9,6 @@ import cc.efit.dialogue.api.vo.node.TemplateNodeInfo;
 import cc.efit.process.api.core.DialogueProcessSession;
 import cc.efit.process.api.utils.FormatUtil;
 import cc.efit.process.biz.predict.AbstractPredictHandler;
-import cc.efit.process.biz.predict.keyword.Keyword;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,6 @@ package cc.efit.dialogue.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -14,7 +13,7 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TemplateKnowledgeDto extends BaseDTO implements Serializable {
+public class TemplateKnowledgeDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

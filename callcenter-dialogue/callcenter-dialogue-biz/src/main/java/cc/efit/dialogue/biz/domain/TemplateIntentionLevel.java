@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 意向等级对象 efit_template_intention_level
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_intention_level")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateIntentionLevel extends DataPermissionEntity implements Serializable {
+public class TemplateIntentionLevel extends DataPermissionEntity {
 
     /** 主键 */
     @Id

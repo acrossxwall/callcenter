@@ -1,11 +1,11 @@
 package cc.efit.system.rest;
 
 import cc.efit.web.enums.UserTypeEnum;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.system.domain.User;
 import cc.efit.modules.system.service.UserService;
 import cc.efit.modules.system.service.dto.UserQueryCriteria;
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import cc.efit.annotation.Log;
+import cc.efit.logging.annotation.Log;
 import org.springframework.data.domain.Pageable;
 import java.io.IOException;
 

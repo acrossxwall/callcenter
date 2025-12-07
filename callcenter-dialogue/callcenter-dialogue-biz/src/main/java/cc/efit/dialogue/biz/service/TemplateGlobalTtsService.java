@@ -5,7 +5,7 @@ import cc.efit.dialogue.biz.domain.TemplateGlobalTts;
 import cc.efit.dialogue.biz.service.dto.TemplateGlobalTtsDto;
 import cc.efit.dialogue.biz.service.dto.TemplateGlobalTtsQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * tts全局设置Service接口
  * 

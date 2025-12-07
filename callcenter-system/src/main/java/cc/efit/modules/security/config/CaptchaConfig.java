@@ -19,7 +19,7 @@ import com.wf.captcha.*;
 import com.wf.captcha.base.Captcha;
 import lombok.Data;
 import lombok.Getter;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.security.config.enums.LoginCodeEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;

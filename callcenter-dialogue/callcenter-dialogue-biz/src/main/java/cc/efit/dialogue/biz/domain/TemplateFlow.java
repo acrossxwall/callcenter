@@ -9,8 +9,6 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.type.SqlTypes;
 
-import java.io.Serializable;
-
 import java.util.List;
 /**
  * 流程节点对象 efit_template_flow
@@ -23,7 +21,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_flow")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateFlow extends DataPermissionEntity implements Serializable {
+public class TemplateFlow extends DataPermissionEntity {
 
     /** 主键 */
     @Id

@@ -3,7 +3,6 @@ package cc.efit.call.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 
 /**
  * 线路分配表对象 efit_call_line_assign
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class LineAssignDto extends BaseDTO implements Serializable {
+public class LineAssignDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

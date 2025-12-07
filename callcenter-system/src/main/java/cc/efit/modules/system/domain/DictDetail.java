@@ -24,8 +24,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
-
 /**
 * 
 * @date 2019-04-10
@@ -35,7 +33,7 @@ import java.io.Serializable;
 @Setter
 @Table(name="sys_dict_detail")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class DictDetail extends BaseEntity implements Serializable {
+public class DictDetail extends BaseEntity {
 
     @Id
     @Column(name = "detail_id")

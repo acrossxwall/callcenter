@@ -3,8 +3,6 @@ package cc.efit.call.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
-import java.util.Date;
 /**
  * 外呼任务job表对象 efit_call_task_job
  * 
@@ -13,7 +11,7 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CallTaskJobDto extends BaseDTO implements Serializable {
+public class CallTaskJobDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

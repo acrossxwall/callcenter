@@ -6,11 +6,10 @@ import cc.efit.dialogue.biz.service.dto.TemplateWordsCategoryDto;
 import cc.efit.dialogue.biz.service.dto.TemplateWordsCategoryQueryCriteria;
 import cc.efit.dialogue.biz.vo.words.CategoryInfo;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 词库分类Service接口
  * 

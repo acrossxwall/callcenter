@@ -3,7 +3,7 @@ package cc.efit.utils;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
 
-import static cc.efit.utils.FileUtil.*;
+import static cc.efit.common.utils.FileUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileUtilTest {

@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 客户名单批次详细表对象 efit_call_customer_import_detail
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_customer_import_detail")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class CallCustomerImportDetail extends DataPermissionEntity implements Serializable {
+public class CallCustomerImportDetail extends DataPermissionEntity {
 
     /** 主键 */
     @Id

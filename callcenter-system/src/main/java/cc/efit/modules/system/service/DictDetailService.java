@@ -15,7 +15,7 @@
  */
 package cc.efit.modules.system.service;
 
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import cc.efit.modules.system.domain.DictDetail;
 import cc.efit.modules.system.service.dto.DictDetailDto;
 import cc.efit.modules.system.service.dto.DictDetailQueryCriteria;

@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -20,7 +19,7 @@ import java.sql.Timestamp;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_review")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateReview extends DataPermissionEntity implements Serializable {
+public class TemplateReview extends DataPermissionEntity {
 
     /** 主键 */
     @Id

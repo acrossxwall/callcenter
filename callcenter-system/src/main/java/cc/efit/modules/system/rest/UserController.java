@@ -15,25 +15,25 @@
  */
 package cc.efit.modules.system.rest;
 
+import cc.efit.common.utils.RsaUtils;
 import cc.efit.web.enums.UserTypeEnum;
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import cc.efit.web.utils.SecurityUtils;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import cc.efit.annotation.Log;
-import cc.efit.config.properties.RsaProperties;
+import cc.efit.logging.annotation.Log;
+import cc.efit.common.config.properties.RsaProperties;
 import cc.efit.modules.system.domain.Dept;
 import cc.efit.modules.system.domain.User;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.system.domain.vo.UserPassVo;
 import cc.efit.modules.system.service.DeptService;
 import cc.efit.modules.system.service.dto.UserDto;
 import cc.efit.modules.system.service.dto.UserQueryCriteria;
 import cc.efit.modules.system.service.VerifyService;
-import cc.efit.utils.*;
 import cc.efit.modules.system.service.UserService;
-import cc.efit.enums.CodeEnum;
+import cc.efit.common.enums.CodeEnum;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;

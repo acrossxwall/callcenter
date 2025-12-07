@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 
 /**
  * 黑名单库表对象 efit_call_black_info
@@ -15,7 +14,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class BlackInfoDto extends BaseDTO implements Serializable {
+public class BlackInfoDto extends BaseDTO {
 
     /** 主键ID */
     private Integer id;

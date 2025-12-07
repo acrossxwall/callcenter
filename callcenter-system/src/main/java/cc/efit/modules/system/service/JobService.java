@@ -15,7 +15,7 @@
  */
 package cc.efit.modules.system.service;
 
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import cc.efit.modules.system.domain.Job;
 import cc.efit.modules.system.service.dto.JobDto;
 import cc.efit.modules.system.service.dto.JobQueryCriteria;

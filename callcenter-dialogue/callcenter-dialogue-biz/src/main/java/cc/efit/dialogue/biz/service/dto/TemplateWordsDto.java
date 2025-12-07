@@ -3,7 +3,6 @@ package cc.efit.dialogue.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 
 /**
  * 关键词库对象 efit_template_words
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TemplateWordsDto extends BaseDTO implements Serializable {
+public class TemplateWordsDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

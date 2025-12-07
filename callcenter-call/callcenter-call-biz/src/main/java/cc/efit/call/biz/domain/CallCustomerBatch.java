@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 客户名单批次表对象 efit_call_customer_batch
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_customer_batch")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class CallCustomerBatch extends DataPermissionEntity implements Serializable {
+public class CallCustomerBatch extends DataPermissionEntity {
 
     /** 批次ID */
     @Id

@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * ai拨打话术对象 efit_call_template
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_template")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class CallTemplate extends DataPermissionEntity implements Serializable {
+public class CallTemplate extends DataPermissionEntity {
 
     /** 主键 */
     @Id

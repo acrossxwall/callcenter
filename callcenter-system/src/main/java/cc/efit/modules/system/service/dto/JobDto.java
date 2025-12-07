@@ -20,7 +20,6 @@ import lombok.Getter;
 import lombok.Setter;
 import cc.efit.db.base.BaseDTO;
 
-import java.io.Serializable;
 
 /**
 *
@@ -28,7 +27,7 @@ import java.io.Serializable;
 */
 @Getter
 @Setter
-public class JobDto extends BaseDTO implements Serializable {
+public class JobDto extends BaseDTO {
 
     @Schema(name = "ID")
     private Integer id;

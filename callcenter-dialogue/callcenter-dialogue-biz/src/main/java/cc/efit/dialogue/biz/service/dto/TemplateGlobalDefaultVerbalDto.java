@@ -3,8 +3,6 @@ package cc.efit.dialogue.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
-import java.util.Date;
 /**
  * 兜底话术全局设置对象 efit_template_global_default_verbal
  * 
@@ -13,7 +11,7 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class TemplateGlobalDefaultVerbalDto extends BaseDTO implements Serializable {
+public class TemplateGlobalDefaultVerbalDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

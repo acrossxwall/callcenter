@@ -3,7 +3,6 @@ package cc.efit.call.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 
 /**
  * 客户名单批次详细表对象 efit_call_customer_import_detail
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CallCustomerImportDetailDto extends BaseDTO implements Serializable {
+public class CallCustomerImportDetailDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

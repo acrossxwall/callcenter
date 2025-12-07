@@ -1,8 +1,8 @@
 package cc.efit.system.service.impl;
 
-import cc.efit.enums.CommonStatusEnum;
-import cc.efit.enums.DataScopeEnum;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.enums.CommonStatusEnum;
+import cc.efit.common.enums.DataScopeEnum;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.system.domain.Role;
 import cc.efit.modules.system.repository.RoleRepository;
 import cc.efit.modules.system.service.RoleService;
@@ -22,10 +22,10 @@ import cc.efit.system.domain.SysOrg;
 import cc.efit.system.service.SysOrgService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import cc.efit.utils.PageResult;
-import cc.efit.utils.PageUtil;
+import cc.efit.common.utils.PageResult;
+import cc.efit.common.utils.PageUtil;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.utils.FileUtil;
+import cc.efit.common.utils.FileUtil;
 
 import java.util.*;
 import java.io.IOException;

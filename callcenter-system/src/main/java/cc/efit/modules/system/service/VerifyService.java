@@ -15,7 +15,7 @@
  */
 package cc.efit.modules.system.service;
 
-import cc.efit.domain.vo.EmailVo;
+import cc.efit.tools.domain.vo.EmailVo;
 
 /**
  * 

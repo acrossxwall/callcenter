@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 /**
  * 中继线路网关表对象 efit_call_line
  * 
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class LineDto extends BaseDTO implements Serializable {
+public class LineDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

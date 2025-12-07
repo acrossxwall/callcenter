@@ -25,8 +25,6 @@ import cc.efit.org.permission.OrgBaseEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
-
 /**
 * @author zhanghouying
 * @date 2019-08-24
@@ -36,7 +34,7 @@ import java.io.Serializable;
 @Setter
 @Table(name="mnt_app")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class App extends OrgBaseEntity implements Serializable {
+public class App extends OrgBaseEntity {
 
     @Id
 	@Column(name = "app_id")

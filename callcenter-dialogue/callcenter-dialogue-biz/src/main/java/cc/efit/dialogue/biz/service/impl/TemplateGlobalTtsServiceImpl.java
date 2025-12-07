@@ -13,8 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import cc.efit.utils.PageResult;
-import cc.efit.utils.PageUtil;
+import cc.efit.common.utils.PageResult;
+import cc.efit.common.utils.PageUtil;
 import cc.efit.db.utils.QueryHelp;
 import java.util.List;
 

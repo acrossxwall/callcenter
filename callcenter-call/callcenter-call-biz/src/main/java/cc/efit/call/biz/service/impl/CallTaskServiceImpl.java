@@ -4,11 +4,8 @@ import cc.efit.call.api.constants.DispatchKeyConstants;
 import cc.efit.call.api.domain.LineAssign;
 import cc.efit.call.api.enums.CallCustomerStatusEnum;
 import cc.efit.call.api.enums.CallTaskJobStatusEnum;
-import cc.efit.call.api.repository.CallTaskStatisticsRepository;
 import cc.efit.call.api.repository.LineAssignRepository;
 import cc.efit.call.api.vo.task.CallStatusCountInfo;
-import cc.efit.call.api.vo.task.TaskStatisticsInfo;
-import cc.efit.call.api.vo.task.TaskSummaryInfo;
 import cc.efit.call.biz.domain.CallTaskJob;
 import cc.efit.call.biz.repository.CallTaskJobRepository;
 import cc.efit.call.biz.service.CallCustomerService;
@@ -20,7 +17,7 @@ import cc.efit.dialogue.api.vo.template.TemplateInfo;
 import cc.efit.call.api.enums.CallTaskEnum;
 import cc.efit.call.api.vo.task.CallTaskInfo;
 import cc.efit.call.api.domain.CallTask;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.job.IJobService;
 import cc.efit.job.config.XxlJobProperties;
 import cc.efit.job.core.BasicXxlJob;
@@ -43,12 +40,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import cc.efit.utils.PageResult;
-import cc.efit.utils.PageUtil;
+import cc.efit.common.utils.PageResult;
+import cc.efit.common.utils.PageUtil;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.utils.FileUtil;
+import cc.efit.common.utils.FileUtil;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.io.IOException;
@@ -78,7 +74,6 @@ public class CallTaskServiceImpl implements CallTaskService {
     private final XxlJobProperties xxlJobProperties;
     private final CallTaskJobRepository callTaskJobRepository;
     private final LineAssignRepository lineAssignRepository;
-    private final CallTaskStatisticsRepository callTaskStatisticsRepository;
     @Override
     public PageResult<CallTaskDto> queryAll(CallTaskQueryCriteria criteria, Pageable pageable){
         Sort sort = Sort.by(Sort.Direction.DESC,"id");
@@ -233,7 +228,7 @@ public class CallTaskServiceImpl implements CallTaskService {
             //任务已经是目标状态，无需更改
             return;
         }
-        String content = CallTaskEnum.TaskStatus.ENABLE.getStatus().equals(status)?"开启任务":"停止任务";
+        //String content = CallTaskEnum.TaskStatus.ENABLE.getStatus().equals(status)?"开启任务":"停止任务";
         handlerTaskJob(callTask.getId(), status);
         boolean alreadyStart = redisUtils.sHasKey(DispatchKeyConstants.DISPATCH_CALL_START_KEY, callTask.getId());
         if (CallTaskEnum.TaskStatus.ENABLE.getStatus().equals(status) && !alreadyStart) {

@@ -9,7 +9,6 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.type.SqlTypes;
 
-import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -23,7 +22,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_customer")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class CallCustomer extends DataPermissionEntity implements Serializable {
+public class CallCustomer extends DataPermissionEntity {
 
     /** 客户ID */
     @Id

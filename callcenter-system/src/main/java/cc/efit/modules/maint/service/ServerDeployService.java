@@ -18,7 +18,7 @@ package cc.efit.modules.maint.service;
 import cc.efit.modules.maint.domain.ServerDeploy;
 import cc.efit.modules.maint.service.dto.ServerDeployDto;
 import cc.efit.modules.maint.service.dto.ServerDeployQueryCriteria;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import org.springframework.data.domain.Pageable;
 
 import jakarta.servlet.http.HttpServletResponse;

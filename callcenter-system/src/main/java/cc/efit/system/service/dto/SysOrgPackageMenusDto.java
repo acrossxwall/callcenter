@@ -3,8 +3,6 @@ package cc.efit.system.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
-import java.util.Date;
 /**
  * 租户套餐菜单关联表对象 efit_sys_org_package_menus
  * 
@@ -13,7 +11,7 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SysOrgPackageMenusDto extends BaseDTO implements Serializable {
+public class SysOrgPackageMenusDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

@@ -5,11 +5,10 @@ import cc.efit.dialogue.biz.domain.TemplateFlowBranch;
 import cc.efit.dialogue.biz.service.dto.TemplateFlowBranchDto;
 import cc.efit.dialogue.biz.service.dto.TemplateFlowBranchQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 节点意图分支Service接口
  * 

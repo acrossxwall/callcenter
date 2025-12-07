@@ -15,7 +15,7 @@
  */
 package cc.efit.modules.security.security;
 
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;

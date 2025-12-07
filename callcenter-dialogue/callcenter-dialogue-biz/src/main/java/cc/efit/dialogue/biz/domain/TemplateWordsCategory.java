@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseCommonConstant;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 词库分类对象 efit_template_words_category
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_words_category")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateWordsCategory extends BaseEntity implements Serializable {
+public class TemplateWordsCategory extends BaseEntity {
 
     /** 主键 */
     @Id

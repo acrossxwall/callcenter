@@ -15,18 +15,18 @@
  */
 package cc.efit.modules.system.rest;
 
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import cn.hutool.core.collection.CollectionUtil;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import cc.efit.annotation.Log;
-import cc.efit.exception.BadRequestException;
+import cc.efit.logging.annotation.Log;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.system.domain.Dept;
 import cc.efit.modules.system.service.DeptService;
 import cc.efit.modules.system.service.dto.DeptDto;
 import cc.efit.modules.system.service.dto.DeptQueryCriteria;
-import cc.efit.utils.PageUtil;
+import cc.efit.common.utils.PageUtil;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

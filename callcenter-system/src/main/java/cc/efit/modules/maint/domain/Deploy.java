@@ -25,7 +25,6 @@ import cc.efit.org.permission.OrgBaseEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -37,7 +36,7 @@ import java.util.Set;
 @Setter
 @Table(name="mnt_deploy")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class Deploy extends OrgBaseEntity implements Serializable {
+public class Deploy extends OrgBaseEntity {
 
     @Id
 	@Column(name = "deploy_id")

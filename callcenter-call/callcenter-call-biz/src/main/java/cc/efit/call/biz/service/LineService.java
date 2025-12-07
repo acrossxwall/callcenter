@@ -10,7 +10,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 中继线路网关表Service接口
  * 

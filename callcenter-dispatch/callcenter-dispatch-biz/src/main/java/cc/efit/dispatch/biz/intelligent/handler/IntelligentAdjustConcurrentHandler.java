@@ -1,9 +1,6 @@
 package cc.efit.dispatch.biz.intelligent.handler;
 
-import cc.efit.call.api.constants.DispatchKeyConstants;
-import cc.efit.call.api.domain.CallTask;
 import cc.efit.call.api.domain.LineAssign;
-import cc.efit.call.api.enums.CallCustomerStatusEnum;
 import cc.efit.call.api.repository.CallTaskRepository;
 import cc.efit.call.api.repository.LineAssignRepository;
 import cc.efit.call.api.vo.task.CallTaskConcurrency;

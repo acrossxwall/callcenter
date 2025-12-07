@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 线路分配表对象 efit_call_line_assign
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_line_assign")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class LineAssign extends DataPermissionEntity implements Serializable {
+public class LineAssign extends DataPermissionEntity {
 
     /** 主键 */
     @Id

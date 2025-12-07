@@ -1,9 +1,7 @@
 package cc.efit;
 
-import cc.efit.domain.ColumnInfo;
-import cc.efit.domain.CodeConfig;
-import cc.efit.service.CodeConfigService;
-import cc.efit.service.GeneratorService;
+import cc.efit.generator.domain.ColumnInfo;
+import cc.efit.generator.service.GeneratorService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,8 +12,6 @@ import java.util.List;
 public class GenerateTableTest {
     @Autowired
     private GeneratorService generatorService;
-    @Autowired
-    private CodeConfigService genConfigService;
 
     @Test
     public void testFindTableColumn() {

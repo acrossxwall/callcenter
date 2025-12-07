@@ -1,15 +1,15 @@
 package cc.efit.dialogue.biz.service.impl;
 
-import cc.efit.config.properties.FileProperties;
+import cc.efit.common.config.properties.FileProperties;
 import cc.efit.dialogue.api.enums.TemplateVerbalEnum;
 import cc.efit.dialogue.biz.config.TemplateConfig;
 import cc.efit.dialogue.biz.domain.CallTemplate;
 import cc.efit.dialogue.biz.repository.CallTemplateRepository;
 import cc.efit.dialogue.biz.utils.FilePathUtils;
 import cc.efit.dialogue.biz.vo.verbal.TemplateVerbalVo;
-import cc.efit.domain.LocalStorage;
-import cc.efit.exception.BadRequestException;
-import cc.efit.repository.LocalStorageRepository;
+import cc.efit.tools.domain.LocalStorage;
+import cc.efit.common.exception.BadRequestException;
+import cc.efit.tools.repository.LocalStorageRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
@@ -26,10 +26,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import cc.efit.utils.PageResult;
-import cc.efit.utils.PageUtil;
+import cc.efit.common.utils.PageResult;
+import cc.efit.common.utils.PageUtil;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.utils.FileUtil;
+import cc.efit.common.utils.FileUtil;
 
 import java.io.*;
 import java.nio.file.Path;

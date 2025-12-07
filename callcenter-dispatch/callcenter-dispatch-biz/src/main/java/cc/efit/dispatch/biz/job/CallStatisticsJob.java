@@ -1,7 +1,6 @@
 package cc.efit.dispatch.biz.job;
 
 import cc.efit.dispatch.biz.service.CallTaskService;
-import com.xxl.job.core.context.XxlJobContext;
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import lombok.extern.slf4j.Slf4j;

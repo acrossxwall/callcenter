@@ -8,7 +8,7 @@ import cc.efit.dialogue.biz.vo.knowledge.TemplateKnowledgeInfo;
 import org.springframework.data.domain.Pageable;
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 知识库Service接口
  * 

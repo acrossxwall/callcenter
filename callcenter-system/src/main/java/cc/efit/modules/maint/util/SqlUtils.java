@@ -15,11 +15,10 @@
  */
 package cc.efit.modules.maint.util;
 
-import cc.efit.utils.StringUtilsExternal;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
 import cc.efit.modules.maint.domain.enums.DataTypeEnum;
-import cc.efit.utils.CloseUtil;
+import cc.efit.common.utils.CloseUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.sql.DataSource;

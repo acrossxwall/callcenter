@@ -15,23 +15,22 @@
  */
 package cc.efit.modules.system.service.impl;
 
+import cc.efit.common.utils.CacheKey;
+import cc.efit.common.utils.FileUtil;
+import cc.efit.common.utils.ValidationUtil;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.enums.CommonStatusEnum;
+import cc.efit.common.enums.CommonStatusEnum;
 import cc.efit.modules.system.service.dto.DeptInfoDto;
 import cc.efit.redis.utils.RedisUtils;
-import cc.efit.web.base.UserDataScope;
-import cc.efit.web.utils.SecurityUtils;
 import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.ObjectUtil;
 import lombok.RequiredArgsConstructor;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.system.domain.Dept;
 import cc.efit.modules.system.domain.User;
 import cc.efit.modules.system.repository.RoleRepository;
 import cc.efit.modules.system.repository.UserRepository;
 import cc.efit.modules.system.service.dto.DeptDto;
 import cc.efit.modules.system.service.dto.DeptQueryCriteria;
-import cc.efit.utils.*;
 import cc.efit.modules.system.repository.DeptRepository;
 import cc.efit.modules.system.service.DeptService;
 import cc.efit.modules.system.service.mapstruct.DeptMapper;
@@ -40,7 +39,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -235,23 +233,6 @@ public class DeptServiceImpl implements DeptService {
             int count = deptRepository.countByPid(deptId);
             deptRepository.updateSubCntById(count, deptId);
         }
-    }
-
-    private List<DeptDto> deduplication(List<DeptDto> list) {
-        List<DeptDto> deptDtos = new ArrayList<>();
-        for (DeptDto deptDto : list) {
-            boolean flag = true;
-            for (DeptDto dto : list) {
-                if (dto.getId().equals(deptDto.getPid())) {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag){
-                deptDtos.add(deptDto);
-            }
-        }
-        return deptDtos;
     }
 
     /**

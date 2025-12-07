@@ -5,7 +5,7 @@ import cc.efit.dialogue.biz.domain.TemplateGlobalInteraction;
 import cc.efit.dialogue.biz.service.dto.TemplateGlobalInteractionDto;
 import cc.efit.dialogue.biz.service.dto.TemplateGlobalInteractionQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 交互全局设置Service接口
  * 

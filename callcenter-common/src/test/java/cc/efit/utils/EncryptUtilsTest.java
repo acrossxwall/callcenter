@@ -2,7 +2,7 @@ package cc.efit.utils;
 
 import org.junit.jupiter.api.Test;
 
-import static cc.efit.utils.EncryptUtils.*;
+import static cc.efit.common.utils.EncryptUtils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EncryptUtilsTest {

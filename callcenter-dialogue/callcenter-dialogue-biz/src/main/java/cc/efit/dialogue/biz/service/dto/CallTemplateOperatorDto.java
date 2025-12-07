@@ -3,7 +3,6 @@ package cc.efit.dialogue.biz.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 
 /**
  * 话术模板操作日志对象 efit_call_template_operator
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CallTemplateOperatorDto extends BaseDTO implements Serializable {
+public class CallTemplateOperatorDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

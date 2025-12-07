@@ -1,20 +1,19 @@
 package cc.efit.system.service;
 
 import java.util.List;
-import cc.efit.system.domain.SysOrgPackage;
+
 import cc.efit.system.req.SysOrgPackageReq;
 import cc.efit.system.res.OrgPackageInfo;
 import cc.efit.system.res.SysOrgPackageRes;
 import cc.efit.system.service.dto.SysOrgPackageDto;
 import cc.efit.system.service.dto.SysOrgPackageQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import java.util.Set;
 
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 租户套餐表Service接口
  * 

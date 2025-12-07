@@ -4,7 +4,6 @@ import cc.efit.modules.system.domain.Dept;
 import cc.efit.modules.system.domain.User;
 import cc.efit.modules.system.repository.UserRepository;
 import cc.efit.modules.system.service.JobService;
-import cc.efit.modules.system.service.UserService;
 import cc.efit.modules.system.service.dto.JobDto;
 import cc.efit.modules.system.service.dto.UserQueryCriteria;
 import cc.efit.db.utils.QueryHelp;
@@ -19,8 +18,6 @@ import java.util.Set;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,classes = AppRun.class)
 public class SystemUserTests {
     @Autowired
-    private UserService userService;
-    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -30,7 +27,7 @@ public class SystemUserTests {
         Integer id = 2 ;
         User user = userRepository.findByUsername("user");
         Dept dept = new Dept();
-        dept.setId(28);
+        dept.setId(id);
         user.setDept(dept);
         userRepository.save(user);
         System.out.println(user);

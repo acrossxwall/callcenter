@@ -19,7 +19,7 @@ import cc.efit.modules.maint.domain.Deploy;
 import cc.efit.modules.maint.domain.DeployHistory;
 import cc.efit.modules.maint.service.dto.DeployDto;
 import cc.efit.modules.maint.service.dto.DeployQueryCriteria;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import org.springframework.data.domain.Pageable;
 
 import jakarta.servlet.http.HttpServletResponse;

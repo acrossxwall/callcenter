@@ -5,11 +5,10 @@ import cc.efit.system.domain.SysOrgPackageMenus;
 import cc.efit.system.service.dto.SysOrgPackageMenusDto;
 import cc.efit.system.service.dto.SysOrgPackageMenusQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 租户套餐菜单关联表Service接口
  * 

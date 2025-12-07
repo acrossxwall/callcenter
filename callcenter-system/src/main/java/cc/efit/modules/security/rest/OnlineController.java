@@ -15,8 +15,8 @@
  */
 package cc.efit.modules.security.rest;
 
-import cc.efit.res.R;
-import cc.efit.utils.EncryptUtils;
+import cc.efit.common.res.R;
+import cc.efit.common.utils.EncryptUtils;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;

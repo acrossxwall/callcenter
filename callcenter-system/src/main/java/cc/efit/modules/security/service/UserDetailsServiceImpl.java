@@ -15,12 +15,11 @@
  */
 package cc.efit.modules.security.service;
 
-import cc.efit.enums.CommonStatusEnum;
+import cc.efit.common.enums.CommonStatusEnum;
 import cc.efit.org.GlobalPermissionHolder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cc.efit.exception.BadRequestException;
-import cc.efit.modules.security.service.dto.AuthorityDto;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.security.service.dto.JwtUserDto;
 import cc.efit.modules.system.service.DataService;
 import cc.efit.modules.system.service.RoleService;
@@ -28,7 +27,6 @@ import cc.efit.modules.system.service.UserService;
 import cc.efit.modules.system.service.dto.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 /**
  * 

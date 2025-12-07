@@ -1,6 +1,5 @@
 package cc.efit.process.biz.predict.keyword;
 
-import cc.efit.dialogue.api.enums.TemplateIntentionClassifyEnum;
 import cc.efit.process.api.res.MatchResult;
 import cc.efit.dialogue.api.vo.node.TemplateNodeBranchInfo;
 import cc.efit.dialogue.api.vo.node.TemplateNodeInfo;

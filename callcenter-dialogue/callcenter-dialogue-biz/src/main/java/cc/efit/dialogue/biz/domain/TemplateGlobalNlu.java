@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * nlu全局设置对象 efit_template_global_nlu
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_global_nlu")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateGlobalNlu extends DataPermissionEntity implements Serializable {
+public class TemplateGlobalNlu extends DataPermissionEntity {
 
     /** 主键 */
     @Id

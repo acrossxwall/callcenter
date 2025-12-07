@@ -6,11 +6,10 @@ import cc.efit.dialogue.biz.service.dto.TemplateVerbalDto;
 import cc.efit.dialogue.biz.service.dto.TemplateVerbalQueryCriteria;
 import cc.efit.dialogue.biz.vo.verbal.TemplateVerbalVo;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 话术Service接口
  * 

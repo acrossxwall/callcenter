@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 外呼任务job表对象 efit_call_task_job
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_task_job")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class CallTaskJob extends DataPermissionEntity implements Serializable {
+public class CallTaskJob extends DataPermissionEntity {
 
     /** 主键 */
     @Id

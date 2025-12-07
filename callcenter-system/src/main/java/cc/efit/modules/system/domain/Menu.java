@@ -25,7 +25,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,7 +37,7 @@ import java.util.Set;
 @Setter
 @Table(name = "sys_menu")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class Menu extends BaseEntity implements Serializable {
+public class Menu extends BaseEntity {
 
     @Id
     @Column(name = "menu_id")

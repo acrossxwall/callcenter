@@ -28,9 +28,9 @@ public class PlayFileAction extends AbstractActionHandler {
         session.setEnableInterrupt(YesNoEnum.YES.getCode().equals(playFileAction.getEnableInterrupt())) ;
         log.info("callId:{},callUuid:{},content:{},play file:{}", callId, callUuid,playFileAction.getContent(), playFileAction.getFilePath());
         File file = new File(nfsPathConfig.getBase() + playFileAction.getFilePath());
-//        if (!file.exists()) {
-//            throw new ProcessActionException("播音文件不存在");
-//        }
+       if (!file.exists()) {
+           throw new ProcessActionException("播音文件不存在");
+       }
         getFsApiCommand().playFile( callUuid,nfsPathConfig.getBase() + playFileAction.getFilePath());
         return playFileAction.getContent();
     }

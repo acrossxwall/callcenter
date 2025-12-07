@@ -21,14 +21,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import cc.efit.enums.DataScopeEnum;
+import cc.efit.common.enums.DataScopeEnum;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
@@ -42,7 +41,7 @@ import java.util.Set;
 @Entity
 @Table(name = "sys_role")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class Role extends DataPermissionEntity implements Serializable {
+public class Role extends DataPermissionEntity {
 
     @Id
     @Column(name = "role_id")

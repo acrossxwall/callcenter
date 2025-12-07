@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseCommonConstant;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 租户套餐表对象 efit_sys_org_package
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_sys_org_package")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class SysOrgPackage extends BaseEntity implements Serializable {
+public class SysOrgPackage extends BaseEntity {
 
     /** 套餐编号 */
     @Id

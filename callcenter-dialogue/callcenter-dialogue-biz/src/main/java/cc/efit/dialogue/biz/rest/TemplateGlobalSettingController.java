@@ -1,9 +1,9 @@
 package cc.efit.dialogue.biz.rest;
 
-import cc.efit.annotation.Log;
+import cc.efit.logging.annotation.Log;
 import cc.efit.dialogue.biz.service.TemplateGlobalSettingsService;
 import cc.efit.dialogue.biz.vo.global.*;
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;

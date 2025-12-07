@@ -2,7 +2,6 @@ package cc.efit.dial.biz.handler.event;
 
 import cc.efit.dial.api.core.DialProcessSession;
 import cc.efit.dial.api.enums.ProcessSessionStatusEnum;
-import cc.efit.dial.biz.handler.ActionHandlerFactory;
 import cc.efit.dial.biz.handler.exception.ProcessActionException;
 import cc.efit.dial.biz.service.ProcessService;
 import cc.efit.esl.core.event.EslEvent;
@@ -21,8 +20,6 @@ import java.util.ArrayList;
 public class AnswerEventHandler extends AbstractEventHandler {
     @Autowired
     private ProcessService processService;
-    @Autowired
-    private ActionHandlerFactory actionHandlerFactory;
     @Override
     public void eventHandler(DialProcessSession session, EslEvent event) throws ProcessActionException {
         String callId = session.getCallId();

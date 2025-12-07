@@ -15,7 +15,7 @@
  */
 package cc.efit.modules.security.security;
 
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

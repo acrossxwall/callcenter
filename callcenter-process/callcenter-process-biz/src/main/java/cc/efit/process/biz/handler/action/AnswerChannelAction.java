@@ -1,6 +1,5 @@
 package cc.efit.process.biz.handler.action;
 
-import cc.efit.process.api.ProcessServiceProto;
 import cc.efit.process.api.action.BaseActionData;
 import cc.efit.process.api.constants.DialogueRedisConstant;
 import cc.efit.process.api.enums.ProcessReqActionEnum;

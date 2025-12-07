@@ -25,7 +25,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -37,7 +36,7 @@ import java.util.Objects;
 @Setter
 @Table(name="sys_job")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class Job extends DataPermissionEntity implements Serializable {
+public class Job extends DataPermissionEntity {
 
     @Id
     @Column(name = "job_id")

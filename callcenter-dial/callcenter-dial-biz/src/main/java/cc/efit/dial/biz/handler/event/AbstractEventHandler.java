@@ -7,6 +7,7 @@ import cc.efit.dial.api.core.DialProcessSession;
 import cc.efit.dial.api.enums.ProcessSessionStatusEnum;
 import cc.efit.dial.biz.client.FsApiCommand;
 import cc.efit.dial.biz.handler.base.BaseEventHandler;
+import cc.efit.dial.biz.handler.base.BaseStatusHandler;
 import cc.efit.dial.biz.handler.exception.ProcessActionException;
 import cc.efit.esl.core.event.EslEvent;
 import cc.efit.json.utils.JsonUtils;
@@ -41,6 +42,15 @@ public abstract class AbstractEventHandler implements BaseEventHandler {
             //处理了异常
             log.error("处理事件异常",e);
             hangupChannel(callId, event.getCallerUuid());
+        }
+
+        BaseStatusHandler statusHandler = getStatusHandlerFactory().getBaseStatusHandler(session.getStatus());
+        if (statusHandler!=null) {
+            try {
+                statusHandler.statusProcess(session);
+            } catch (ProcessActionException e) {
+                log.error("处理状态handler失败",e);
+            }
         }
         storeSessionToRedis(session);
     }

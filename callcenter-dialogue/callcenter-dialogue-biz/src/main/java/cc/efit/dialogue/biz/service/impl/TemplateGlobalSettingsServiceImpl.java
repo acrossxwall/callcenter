@@ -1,15 +1,15 @@
 package cc.efit.dialogue.biz.service.impl;
 
-import cc.efit.config.properties.FileProperties;
+import cc.efit.common.config.properties.FileProperties;
 import cc.efit.dialogue.api.vo.global.*;
 import cc.efit.dialogue.biz.config.TemplateConfig;
 import cc.efit.dialogue.biz.domain.*;
 import cc.efit.dialogue.biz.repository.TemplateVerbalRepository;
 import cc.efit.dialogue.biz.service.*;
 import cc.efit.dialogue.biz.vo.global.*;
-import cc.efit.enums.CommonOperatorEnum;
+import cc.efit.common.enums.CommonOperatorEnum;
 import cc.efit.core.enums.YesNoEnum;
-import cc.efit.repository.LocalStorageRepository;
+import cc.efit.tools.repository.LocalStorageRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

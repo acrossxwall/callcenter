@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseCommonConstant;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 租户套餐菜单关联表对象 efit_sys_org_package_menus
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_sys_org_package_menus")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class SysOrgPackageMenus extends BaseEntity implements Serializable {
+public class SysOrgPackageMenus extends BaseEntity {
 
     /** 主键 */
     @Id

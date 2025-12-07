@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.db.base.BaseEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 多租户对象 efit_sys_org
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_sys_org")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class SysOrg extends  BaseEntity implements Serializable {
+public class SysOrg extends  BaseEntity {
 
     /** 主键 */
     @Id

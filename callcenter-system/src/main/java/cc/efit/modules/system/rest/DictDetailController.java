@@ -15,12 +15,12 @@
  */
 package cc.efit.modules.system.rest;
 
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import cc.efit.annotation.Log;
-import cc.efit.exception.BadRequestException;
+import cc.efit.logging.annotation.Log;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.system.domain.DictDetail;
 import cc.efit.modules.system.service.DictDetailService;
 import cc.efit.modules.system.service.dto.DictDetailDto;

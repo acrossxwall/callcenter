@@ -15,16 +15,15 @@
  */
 package cc.efit.modules.security.service;
 
+import cc.efit.common.utils.*;
 import cc.efit.web.enums.UserTypeEnum;
 import cc.efit.redis.utils.RedisUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import cc.efit.modules.security.security.TokenProvider;
-import cc.efit.utils.PageResult;
 import cc.efit.modules.security.config.SecurityProperties;
 import cc.efit.modules.security.service.dto.JwtUserDto;
 import cc.efit.modules.security.service.dto.OnlineUserDto;
-import cc.efit.utils.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

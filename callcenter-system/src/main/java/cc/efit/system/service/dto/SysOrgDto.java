@@ -3,7 +3,6 @@ package cc.efit.system.service.dto;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 
 /**
  * 多租户对象 sys_org
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SysOrgDto extends BaseDTO implements Serializable {
+public class SysOrgDto extends BaseDTO {
 
     /** 主键 */
     private Integer id;

@@ -15,17 +15,16 @@
  */
 package cc.efit.modules.system.service.impl;
 
+import cc.efit.common.utils.*;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.enums.CommonStatusEnum;
+import cc.efit.common.enums.CommonStatusEnum;
 import cc.efit.redis.utils.RedisUtils;
 import lombok.RequiredArgsConstructor;
-import cc.efit.utils.PageResult;
-import cc.efit.exception.BadRequestException;
-import cc.efit.exception.EntityExistException;
+import cc.efit.common.exception.BadRequestException;
+import cc.efit.common.exception.EntityExistException;
 import cc.efit.modules.system.domain.Job;
 import cc.efit.modules.system.repository.UserRepository;
 import cc.efit.modules.system.service.dto.JobQueryCriteria;
-import cc.efit.utils.*;
 import cc.efit.modules.system.repository.JobRepository;
 import cc.efit.modules.system.service.JobService;
 import cc.efit.modules.system.service.dto.JobDto;

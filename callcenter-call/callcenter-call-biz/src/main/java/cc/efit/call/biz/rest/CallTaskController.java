@@ -7,7 +7,7 @@ import cc.efit.dialogue.api.service.DialogueTemplateApi;
 import cc.efit.call.api.enums.CallTaskEnum;
 import cc.efit.call.api.domain.CallTask;
 import cc.efit.call.biz.service.dto.CallTaskDto;
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import cc.efit.web.utils.SecurityUtils;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import cc.efit.annotation.Log;
+import cc.efit.logging.annotation.Log;
 import org.springframework.data.domain.Pageable;
 import java.io.IOException;
 

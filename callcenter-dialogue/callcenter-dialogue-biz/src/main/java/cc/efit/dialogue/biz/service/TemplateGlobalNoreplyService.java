@@ -5,7 +5,7 @@ import cc.efit.dialogue.biz.domain.TemplateGlobalNoreply;
 import cc.efit.dialogue.biz.service.dto.TemplateGlobalNoreplyDto;
 import cc.efit.dialogue.biz.service.dto.TemplateGlobalNoreplyQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 无应答全局设置Service接口
  * 

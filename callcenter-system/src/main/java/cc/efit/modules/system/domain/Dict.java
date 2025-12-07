@@ -25,8 +25,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.io.Serializable;
-
 /**
 * @date 2019-04-10
 */
@@ -35,7 +33,7 @@ import java.io.Serializable;
 @Setter
 @Table(name="sys_dict")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class Dict extends BaseEntity implements Serializable {
+public class Dict extends BaseEntity {
 
     @Id
     @Column(name = "dict_id")

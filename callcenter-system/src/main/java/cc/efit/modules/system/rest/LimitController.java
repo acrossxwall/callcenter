@@ -17,8 +17,8 @@ package cc.efit.modules.system.rest;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
-import cc.efit.annotation.Limit;
-import cc.efit.annotation.rest.AnonymousGetMapping;
+import cc.efit.common.annotation.Limit;
+import cc.efit.common.annotation.rest.AnonymousGetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

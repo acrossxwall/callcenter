@@ -9,7 +9,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * ${functionName}对象 ${tableName}
  * 
@@ -21,7 +20,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="${tableName}")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class ${ClassName} extends DataPermissionEntity implements Serializable {
+public class ${ClassName} extends DataPermissionEntity {
 
 #foreach ($column in $columns)
 #if($column.superField!=1)

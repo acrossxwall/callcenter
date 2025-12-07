@@ -15,8 +15,11 @@
  */
 package cc.efit.modules.system.service.impl;
 
+import cc.efit.common.utils.CacheKey;
+import cc.efit.common.utils.FileUtil;
+import cc.efit.common.utils.PageUtil;
 import cc.efit.db.utils.QueryHelp;
-import cc.efit.enums.CommonStatusEnum;
+import cc.efit.common.enums.CommonStatusEnum;
 import cc.efit.modules.system.repository.RoleRepository;
 import cc.efit.modules.system.service.mapstruct.UserInfoMapper;
 import cc.efit.org.GlobalPermissionHolder;
@@ -24,19 +27,18 @@ import cc.efit.redis.utils.RedisUtils;
 import cc.efit.web.enums.UserTypeEnum;
 import cc.efit.web.utils.SecurityUtils;
 import lombok.RequiredArgsConstructor;
-import cc.efit.utils.PageResult;
-import cc.efit.config.properties.FileProperties;
-import cc.efit.exception.BadRequestException;
+import cc.efit.common.utils.PageResult;
+import cc.efit.common.config.properties.FileProperties;
+import cc.efit.common.exception.BadRequestException;
 import cc.efit.modules.security.service.OnlineUserService;
 import cc.efit.modules.security.service.UserCacheManager;
 import cc.efit.modules.system.domain.User;
-import cc.efit.exception.EntityExistException;
-import cc.efit.exception.EntityNotFoundException;
+import cc.efit.common.exception.EntityExistException;
+import cc.efit.common.exception.EntityNotFoundException;
 import cc.efit.modules.system.repository.UserRepository;
 import cc.efit.modules.system.service.UserService;
 import cc.efit.modules.system.service.dto.*;
 import cc.efit.modules.system.service.mapstruct.UserMapper;
-import cc.efit.utils.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

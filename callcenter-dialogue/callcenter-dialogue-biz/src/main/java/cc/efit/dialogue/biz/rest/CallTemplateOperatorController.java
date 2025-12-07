@@ -1,6 +1,6 @@
 package cc.efit.dialogue.biz.rest;
 
-import cc.efit.res.R;
+import cc.efit.common.res.R;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import cc.efit.annotation.Log;
+import cc.efit.logging.annotation.Log;
 import org.springframework.data.domain.Pageable;
 import java.io.IOException;
 

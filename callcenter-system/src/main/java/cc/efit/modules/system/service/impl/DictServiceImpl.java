@@ -15,13 +15,12 @@
  */
 package cc.efit.modules.system.service.impl;
 
+import cc.efit.common.utils.*;
 import cc.efit.db.utils.QueryHelp;
 import cc.efit.redis.utils.RedisUtils;
 import lombok.RequiredArgsConstructor;
-import cc.efit.utils.PageResult;
 import cc.efit.modules.system.domain.Dict;
 import cc.efit.modules.system.service.dto.DictQueryCriteria;
-import cc.efit.utils.*;
 import cc.efit.modules.system.repository.DictRepository;
 import cc.efit.modules.system.service.DictService;
 import cc.efit.modules.system.service.dto.DictDto;

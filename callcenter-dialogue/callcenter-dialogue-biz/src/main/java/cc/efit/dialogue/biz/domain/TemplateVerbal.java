@@ -6,7 +6,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 话术对象 efit_template_verbal
  * 
@@ -18,7 +17,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_verbal")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateVerbal extends DataPermissionEntity implements Serializable {
+public class TemplateVerbal extends DataPermissionEntity {
 
     /** 主键 */
     @Id

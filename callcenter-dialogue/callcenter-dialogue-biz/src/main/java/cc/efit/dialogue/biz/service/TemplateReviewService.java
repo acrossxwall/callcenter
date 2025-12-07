@@ -6,11 +6,10 @@ import cc.efit.dialogue.biz.service.dto.TemplateReviewDto;
 import cc.efit.dialogue.biz.service.dto.TemplateReviewQueryCriteria;
 import cc.efit.dialogue.biz.vo.review.TemplateReviewInfo;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 话术审核记录Service接口
  * 

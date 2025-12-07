@@ -12,7 +12,7 @@ import cc.efit.dialogue.biz.vo.template.TemplateFlowVo;
 import org.springframework.data.domain.Pageable;
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * ai拨打话术Service接口
  * 

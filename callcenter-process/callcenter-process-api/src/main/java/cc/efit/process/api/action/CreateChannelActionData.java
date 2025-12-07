@@ -1,8 +1,6 @@
 package cc.efit.process.api.action;
 
 import cc.efit.process.api.enums.ProcessResActionEnum;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @author across

@@ -9,7 +9,6 @@ import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.type.SqlTypes;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -23,7 +22,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_template_knowledge")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class TemplateKnowledge extends DataPermissionEntity implements Serializable {
+public class TemplateKnowledge extends DataPermissionEntity {
 
     /** 主键 */
     @Id

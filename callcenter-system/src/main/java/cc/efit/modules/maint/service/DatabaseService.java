@@ -18,7 +18,7 @@ package cc.efit.modules.maint.service;
 import cc.efit.modules.maint.domain.Database;
 import cc.efit.modules.maint.service.dto.DatabaseDto;
 import cc.efit.modules.maint.service.dto.DatabaseQueryCriteria;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import org.springframework.data.domain.Pageable;
 
 import jakarta.servlet.http.HttpServletResponse;

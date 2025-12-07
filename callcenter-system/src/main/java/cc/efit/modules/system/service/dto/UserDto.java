@@ -19,7 +19,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -29,7 +28,7 @@ import java.util.Set;
  */
 @Getter
 @Setter
-public class UserDto extends BaseDTO implements Serializable {
+public class UserDto extends BaseDTO {
 
     @Schema(name = "ID")
     private Integer id;

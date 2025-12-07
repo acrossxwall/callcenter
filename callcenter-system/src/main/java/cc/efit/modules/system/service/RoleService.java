@@ -15,11 +15,10 @@
  */
 package cc.efit.modules.system.service;
 
-import cc.efit.modules.security.service.dto.AuthorityDto;
 import cc.efit.modules.security.service.dto.JwtUserDto;
 import cc.efit.modules.system.domain.Role;
 import cc.efit.modules.system.service.dto.*;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import org.springframework.data.domain.Pageable;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;

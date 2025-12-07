@@ -8,7 +8,6 @@ import cc.efit.db.base.BaseCommonConstant;
 import cc.efit.data.permission.DataPermissionEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.SQLRestriction;
-import java.io.Serializable;
 /**
  * 呼叫任务统计表表对象 efit_call_task_statistics
  * 
@@ -20,7 +19,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @Table(name="efit_call_task_statistics")
 @SQLRestriction(BaseCommonConstant.DEFAULT_DELETE)
-public class CallTaskStatistics extends DataPermissionEntity implements Serializable {
+public class CallTaskStatistics extends DataPermissionEntity {
 
     /** ID */
     @Id

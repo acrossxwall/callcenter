@@ -10,6 +10,7 @@ import cc.efit.dial.api.req.CallCustomerInfoReq;
 import cc.efit.dial.biz.client.FsApiCommand;
 import cc.efit.dial.biz.handler.ActionHandlerFactory;
 import cc.efit.dial.biz.handler.EventHandlerFactory;
+import cc.efit.dial.biz.handler.StatusHandlerFactory;
 import cc.efit.dial.biz.handler.exception.ProcessActionException;
 import cc.efit.json.utils.JsonUtils;
 import cc.efit.process.api.action.BaseActionData;
@@ -41,6 +42,10 @@ public interface CommonHandler {
 
     default EventHandlerFactory getEventHandlerFactory(){
         return SpringBeanHolder.getBean(EventHandlerFactory.class);
+    }
+
+    default StatusHandlerFactory getStatusHandlerFactory() {
+        return SpringBeanHolder.getBean(StatusHandlerFactory.class);
     }
 
     default FsApiCommand getFsApiCommand(){

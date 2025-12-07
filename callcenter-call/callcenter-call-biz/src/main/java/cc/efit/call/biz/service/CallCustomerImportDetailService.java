@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 客户名单批次详细表Service接口
  * 

@@ -1,16 +1,17 @@
 package cc.efit.utils;
 
+import cc.efit.common.utils.StringUtilsExternal;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static cc.efit.utils.StringUtilsExternal.getIp;
-import static cc.efit.utils.StringUtilsExternal.getWeekDay;
-import static cc.efit.utils.StringUtilsExternal.toCamelCase;
-import static cc.efit.utils.StringUtilsExternal.toCapitalizeCamelCase;
-import static cc.efit.utils.StringUtilsExternal.toUnderScoreCase;
+import static cc.efit.common.utils.StringUtilsExternal.getIp;
+import static cc.efit.common.utils.StringUtilsExternal.getWeekDay;
+import static cc.efit.common.utils.StringUtilsExternal.toCamelCase;
+import static cc.efit.common.utils.StringUtilsExternal.toCapitalizeCamelCase;
+import static cc.efit.common.utils.StringUtilsExternal.toUnderScoreCase;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 

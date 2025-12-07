@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
 /**
  * 呼叫任务系统维度统计表对象 efit_call_system_statistics
  * 
@@ -13,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CallSystemStatisticsDto extends BaseDTO implements Serializable {
+public class CallSystemStatisticsDto extends BaseDTO {
 
     /** ID */
     private Integer id;

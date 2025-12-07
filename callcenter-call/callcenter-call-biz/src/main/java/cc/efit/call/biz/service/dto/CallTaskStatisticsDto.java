@@ -1,12 +1,9 @@
 package cc.efit.call.biz.service.dto;
 
 import java.time.LocalDateTime;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import cc.efit.db.base.BaseDTO;
-import java.io.Serializable;
-import java.util.Date;
 /**
  * 呼叫任务统计表表对象 efit_call_task_statistics
  * 
@@ -15,7 +12,7 @@ import java.util.Date;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CallTaskStatisticsDto extends BaseDTO implements Serializable {
+public class CallTaskStatisticsDto extends BaseDTO {
 
     /** ID */
     private Integer id;

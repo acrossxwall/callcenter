@@ -5,11 +5,10 @@ import cc.efit.dialogue.biz.domain.TemplateWords;
 import cc.efit.dialogue.biz.service.dto.TemplateWordsDto;
 import cc.efit.dialogue.biz.service.dto.TemplateWordsQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 关键词库Service接口
  * 

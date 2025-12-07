@@ -5,11 +5,10 @@ import cc.efit.dialogue.biz.domain.CallTemplateOperator;
 import cc.efit.dialogue.biz.service.dto.CallTemplateOperatorDto;
 import cc.efit.dialogue.biz.service.dto.CallTemplateOperatorQueryCriteria;
 import org.springframework.data.domain.Pageable;
-import java.util.Map;
-import java.util.List;
+
 import java.io.IOException;
 import jakarta.servlet.http.HttpServletResponse;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 /**
  * 话术模板操作日志Service接口
  * 

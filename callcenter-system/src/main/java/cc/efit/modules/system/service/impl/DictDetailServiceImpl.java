@@ -15,15 +15,16 @@
  */
 package cc.efit.modules.system.service.impl;
 
+import cc.efit.common.utils.CacheKey;
+import cc.efit.common.utils.PageUtil;
+import cc.efit.common.utils.ValidationUtil;
 import cc.efit.db.utils.QueryHelp;
 import cc.efit.redis.utils.RedisUtils;
 import cn.hutool.core.collection.CollUtil;
 import lombok.RequiredArgsConstructor;
-import cc.efit.utils.PageResult;
+import cc.efit.common.utils.PageResult;
 import cc.efit.modules.system.domain.DictDetail;
-import cc.efit.modules.system.repository.DictRepository;
 import cc.efit.modules.system.service.dto.DictDetailQueryCriteria;
-import cc.efit.utils.*;
 import cc.efit.modules.system.repository.DictDetailRepository;
 import cc.efit.modules.system.service.DictDetailService;
 import cc.efit.modules.system.service.dto.DictDetailDto;
@@ -43,7 +44,6 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class DictDetailServiceImpl implements DictDetailService {
 
-    private final DictRepository dictRepository;
     private final DictDetailRepository dictDetailRepository;
     private final DictDetailMapper dictDetailMapper;
     private final RedisUtils redisUtils;

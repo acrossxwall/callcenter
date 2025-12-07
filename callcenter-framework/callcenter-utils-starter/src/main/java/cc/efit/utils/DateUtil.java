@@ -171,7 +171,4 @@ public class DateUtil {
         return LocalDate.from(DFY_MD.parse(localDate));
     }
 
-    public static void main(String[] args) {
-        System.out.println(getTodayHours());
-    }
 }

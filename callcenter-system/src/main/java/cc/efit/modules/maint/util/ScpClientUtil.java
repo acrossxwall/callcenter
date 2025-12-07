@@ -17,7 +17,6 @@ package cc.efit.modules.maint.util;
 
 import ch.ethz.ssh2.Connection;
 import ch.ethz.ssh2.SCPClient;
-import cc.efit.utils.StringUtilsExternal;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;

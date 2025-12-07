@@ -1,14 +1,12 @@
 package cc.efit.dial.biz.client;
 
 import cc.efit.dial.api.req.CallCustomerInfoReq;
-import cc.efit.dial.api.req.DialPhoneReq;
 import cc.efit.dial.api.req.LineInfoReq;
 import cc.efit.esl.core.FsClient;
 import cc.efit.esl.core.message.SendMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 @Component
 @Slf4j

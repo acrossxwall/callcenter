@@ -4,7 +4,6 @@ import cc.efit.dial.biz.handler.base.BaseActionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 public class ActionHandlerFactory {
 
-    private Map<Integer, BaseActionHandler> actionHandlerMap = new HashMap<>();
+    private Map<Integer, BaseActionHandler> actionHandlerMap;
     @Autowired
     public ActionHandlerFactory(List<BaseActionHandler> actionHandlers){
         actionHandlerMap = actionHandlers.stream().collect(Collectors.toMap(
