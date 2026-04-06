@@ -41,6 +41,7 @@
         <grpc-java.version>1.75.0</grpc-java.version>
         <grpc-spring.version>3.1.0.RELEASE</grpc-spring.version>
         <xxl.job.version>3.2.0</xxl.job.version>
+        <mail.version>1.4.7</mail.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -321,6 +322,13 @@
                 <groupId>com.xuxueli</groupId>
                 <artifactId>xxl-job-core</artifactId>
                 <version>${xxl.job.version}</version>
+            </dependency>
+
+            <!--邮件依赖-->
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${mail.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
