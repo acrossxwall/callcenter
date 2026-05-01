@@ -6,6 +6,7 @@ import cc.efit.process.api.enums.flow.TemplateFlowStatusEnum;
 import cc.efit.process.api.req.ChatProcessReq;
 import cc.efit.process.biz.handler.BaseFlowHandlerChain;
 import cc.efit.process.api.core.DialogueProcessSession;
+import cc.efit.process.api.utils.ProcessChatLogFormatter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +22,8 @@ public class ChatChannelAction  extends AbstractActionHandler {
     private final BaseFlowHandlerChain flowHandlerChain;
     @Override
     public List<BaseActionData> actionHandle(DialogueProcessSession session, ChatProcessReq req) {
-        log.info("开始处理聊天请求,call id:{},template id:{},内容:{}",req.callId(),req.callTemplateId(),req.content());
+        log.info("开始处理聊天请求,call id:{},template id:{},contentMasked:{}", req.callId(), req.callTemplateId(),
+                ProcessChatLogFormatter.maskUtterance(req.content()));
         //默认先进行全局设置匹配-> 通用节点关键词或nlu匹配 -> 知识库匹配链式匹配
         //通用节点，包含两种 普通节点 和 跳转节点
         if (session.getStatus()!= TemplateFlowStatusEnum.PROCESSING) {

@@ -7,6 +7,7 @@ import cc.efit.process.api.action.*;
 import cc.efit.process.api.enums.ProcessResActionEnum;
 import cc.efit.process.api.req.ChatProcessReq;
 import cc.efit.process.api.res.ChatProcessRes;
+import cc.efit.process.api.utils.ProcessChatLogFormatter;
 import cc.efit.process.api.res.DialogueFlowData;
 import cc.efit.process.api.res.MatchResult;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class ProcessServiceImpl implements ProcessService {
 
     @Override
     public ChatProcessRes requestProcessChat( ChatProcessReq chatReq) {
-        log.info("开始请求process service:{}", chatReq);
+        log.info("开始请求process service {}", ProcessChatLogFormatter.summarizeReq(chatReq));
         //此处封装下，尽量把grpc 的协议的代码侵入降到最低
         try {
             ProcessServiceProto.ChatProcessReq.Builder builder = ProcessServiceProto.ChatProcessReq.newBuilder();
@@ -35,12 +36,12 @@ public class ProcessServiceImpl implements ProcessService {
                 builder.putAllCustomerInfo(chatReq.customerInfo());
             }
             ProcessServiceProto.ChatProcessRes  res = processServiceBlockingStub.chatProcess(builder.build());
-            log.info("请求process service成功:{}", res);
             ChatProcessRes chatRes = new ChatProcessRes();
             chatRes.setCallId(res.getCallId());
             chatRes.setMatchResult(buildMatchResult(res.getMatchResult()));
             chatRes.setFlowData(buildFlowData(res.getFlowData()));
             chatRes.setActions(buildActions(res.getActionsList()));
+            log.info("请求process service成功 {}", ProcessChatLogFormatter.summarizeRes(chatRes));
             return chatRes;
         }catch (Exception e){
             //抛出异常，上层处理可能需要挂机，因为流程处理失败了

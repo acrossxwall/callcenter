@@ -3,12 +3,12 @@ server:
 spring:
   data:
     redis:
-      host: 192.168.2.18
+      host: 127.0.0.1
       port: 6379
       password: 123456
       database: 0
   rabbitmq:
-    host: 192.168.2.18
+    host: 127.0.0.1
     port: 5672
     username: admin
     password: admin
@@ -16,13 +16,16 @@ spring:
 grpc:
   client:
     process-service:
+      # 单机示例；多实例时在同一 static 后逗号分隔多个 host:port，例如:
+      # address: 'static://10.0.0.1:9090,10.0.0.2:9090,10.0.0.3:9090'
       address: 'static://127.0.0.1:9090'
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext
+      # 生产内网仍建议启用 TLS：negotiationType 改为 tls，并配置 trustCertCollection 等（见 grpc-spring-boot-starter）
 inbound:
   freeswitch:
-    host: 192.168.2.18
+    host: 127.0.0.1
     port: 8021
     password: ClueCon
     timeoutSeconds: 30

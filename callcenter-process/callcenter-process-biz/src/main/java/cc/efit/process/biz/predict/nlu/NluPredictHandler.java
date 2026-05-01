@@ -8,6 +8,7 @@ import cc.efit.process.api.res.MatchResult;
 import cc.efit.dialogue.api.vo.node.TemplateNodeInfo;
 import cc.efit.process.api.core.DialogueProcessSession;
 import cc.efit.process.api.utils.FormatUtil;
+import cc.efit.process.api.utils.ProcessChatLogFormatter;
 import cc.efit.process.biz.predict.AbstractPredictHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class NluPredictHandler extends AbstractPredictHandler {
     @Override
     public MatchResult predictFlow(String content,  TemplateNodeInfo flowNode, DialogueProcessSession session) {
         String callId = session.getCallId();
-        log.info("callId:{},content:{},进入nlu预测 ",callId,content );
+        log.info("callId:{},contentMasked:{},进入nlu预测 ", callId, ProcessChatLogFormatter.maskUtterance(content));
         //根据节点node 所有意图分支升序排序
         // 根据意图分支的关键词匹配 只要匹配就进入改分支返回改分支对应的节点node id
         Integer callTemplateId = flowNode.getCallTemplateId();
@@ -43,14 +44,14 @@ public class NluPredictHandler extends AbstractPredictHandler {
                     //通过阈值 匹配的最佳意图
                     nluMatch = true;
                     topIntent = predictResult.topIntent();
-                    log.info("callId:{},content:{},nlu匹配的意图code逻辑表达式:{}匹配成功",callId,content,topIntent);
+                    log.info("callId:{},contentMasked:{},nluTopIntent:{}", callId, ProcessChatLogFormatter.maskUtterance(content), topIntent);
                     List<TemplateNodeBranchInfo> branches = getFlowNodeBranches(callTemplateId, flowId);
                     for (TemplateNodeBranchInfo branch : branches) {
                         //nlu 训练将所有意图id和语料组织在一起训练，故此处匹配意图id就行
                         if (branch.intentionId().toString().equals(topIntent)) {
                             //匹配成功
                             buildSessionIntentionClassify(session,branch.classify());
-                            log.info("callId:{},content:{},进入节点:{}",callId,content,branch.targetFlowId());
+                            log.info("callId:{},contentMasked:{},进入节点:{}", callId, ProcessChatLogFormatter.maskUtterance(content), branch.targetFlowId());
                             return new MatchResult(branch.targetFlowId(),null,  branch.intentionId(),branch.name(),false, true, topIntent);
                         }
                     }

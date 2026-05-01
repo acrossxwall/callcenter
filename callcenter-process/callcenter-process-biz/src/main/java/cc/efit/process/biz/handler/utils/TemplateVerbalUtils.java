@@ -71,7 +71,9 @@ public class TemplateVerbalUtils {
 
     public static String buildPlayVerbalContent(String content ,
                            Map<String,String> customerInfo) {
-        log.info("buildPlayVerbalContent:{},customer info:{}",content,customerInfo);
+        log.info("buildPlayVerbalContent verbalLen={},customerInfoSize={}",
+                content == null ? 0 : content.length(),
+                customerInfo == null ? 0 : customerInfo.size());
         return StringSubstitutor.replace(content, customerInfo);
     }
 

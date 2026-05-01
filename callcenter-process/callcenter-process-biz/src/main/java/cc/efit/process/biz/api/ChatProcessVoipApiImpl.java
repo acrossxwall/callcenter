@@ -8,6 +8,7 @@ import cc.efit.dialogue.api.vo.knowledge.TemplateKnowledgeVo;
 import cc.efit.dialogue.api.vo.node.TemplateNodeBranchInfo;
 import cc.efit.process.api.utils.KeywordClassifier;
 import cc.efit.process.biz.cache.IntentionCache;
+import cc.efit.process.api.utils.ProcessChatLogFormatter;
 import cc.efit.process.biz.handler.ActionHandlerFactory;
 import cc.efit.process.biz.handler.BaseActionHandler;
 import cc.efit.process.biz.predict.keyword.Keyword;
@@ -27,10 +28,10 @@ public class ChatProcessVoipApiImpl implements ChatProcessVoipApi {
     private final ActionHandlerFactory actionHandlerFactory;
     @Override
     public ChatProcessRes chatProcess(ChatProcessReq req) {
-        log.info("ChatProcessVoipApiImpl chatProcess req:{}", req);
+        log.info("ChatProcessVoipApiImpl chatProcess {}", ProcessChatLogFormatter.summarizeReq(req));
         BaseActionHandler handler = actionHandlerFactory.getHandler(req.action());
         ChatProcessRes res = handler.processActionHandle(req);
-        log.info("ChatProcessVoipApiImpl chatProcess res:{}", res);
+        log.info("ChatProcessVoipApiImpl chatProcess {}", ProcessChatLogFormatter.summarizeRes(res));
         return res;
     }
 

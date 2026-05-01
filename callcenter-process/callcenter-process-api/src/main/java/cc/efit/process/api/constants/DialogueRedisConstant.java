@@ -11,6 +11,10 @@ public class DialogueRedisConstant {
      * callId 对话会话信息
      */
     public static final String DIALOGUE_SESSION_KEY = "dialogue:session:%s";
+    /**
+     * 同一 callId 会话读写锁（多实例 gRPC 并发请求串行化）
+     */
+    public static final String DIALOGUE_SESSION_LOCK_KEY = "dialogue:session:lock:%s";
     // 模板相关信息已template:%{id} 开头 便于清理redis缓存
     /**
      * 模板加载标志

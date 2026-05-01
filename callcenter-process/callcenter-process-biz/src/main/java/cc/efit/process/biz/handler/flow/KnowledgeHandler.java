@@ -8,6 +8,7 @@ import cc.efit.process.api.enums.flow.TemplateKnowledgeTypeEnum;
 import cc.efit.process.api.req.ChatProcessReq;
 import cc.efit.dialogue.api.vo.knowledge.TemplateKnowledgeVo;
 import cc.efit.process.api.core.DialogueProcessSession;
+import cc.efit.process.api.utils.ProcessChatLogFormatter;
 import cc.efit.process.api.res.MatchResult;
 import cc.efit.process.biz.handler.utils.TemplateKnowledgeUtils;
 import cc.efit.process.biz.predict.BasePredictHandler;
@@ -39,7 +40,7 @@ public class KnowledgeHandler extends AbstractFlowHandler {
             return null;
         }
         String content = req.content();
-        log.info("callId:{},content:{} enter knowledge handler handler", req.callId(),content);
+        log.info("callId:{},contentMasked:{} enter knowledge handler", req.callId(), ProcessChatLogFormatter.maskUtterance(content));
         //没有配置知识库或者知识库包含全选
         List<Integer> knowledgeIds = session.getKnowledgeIds();
         boolean matchAllKnowledge = CollectionUtils.isEmpty(knowledgeIds) || knowledgeIds.stream().anyMatch(id->id.equals(-1));

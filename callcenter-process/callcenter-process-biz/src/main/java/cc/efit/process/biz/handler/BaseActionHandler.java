@@ -4,6 +4,7 @@ import cc.efit.process.api.action.BaseActionData;
 import cc.efit.process.api.req.ChatProcessReq;
 import cc.efit.process.api.res.ChatProcessRes;
 import cc.efit.process.api.core.DialogueProcessSession;
+import cc.efit.process.api.utils.ProcessChatLogFormatter;
 import cc.efit.process.biz.handler.utils.TemplateCommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,7 @@ public interface BaseActionHandler {
         List<BaseActionData> actions ;
         try {
             actions = actionHandle(session, req);
-            logger.info("当前callId:{},返回信息:{}", req.callId(),actions);
+            logger.info("当前callId:{},返回动作:{}", req.callId(), ProcessChatLogFormatter.summarizeActions(actions));
         }catch (Exception e) {
             logger.error("actionHandle error", e);
             actions = buildHangupAction(session ,"系统异常");

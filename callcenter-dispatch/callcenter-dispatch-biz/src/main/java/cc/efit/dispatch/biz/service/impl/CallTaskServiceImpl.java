@@ -379,16 +379,24 @@ public class CallTaskServiceImpl implements CallTaskService {
 
     private void buildSystemStatisticsInfo(SystemStatisticsInfo systemStatisticsInfo,Map<String,Integer> runningConcurrent) {
         log.info("统计系统信息，systemStatisticsInfo:{}",systemStatisticsInfo);
-        CallSystemStatistics systemStatistics = new CallSystemStatistics();
-        systemStatistics.setCallDate(LocalDate.now());
-        systemStatistics.setCallTime(DateUtil.getTodayHours());
+        LocalDate callDate = LocalDate.now();
+        String callTime = DateUtil.getTodayHours();
+        Integer orgId = systemStatisticsInfo.orgId();
+        Integer deptId = systemStatisticsInfo.deptId();
+        Integer userId = systemStatisticsInfo.userId();
+        CallSystemStatistics systemStatistics = callSystemStatisticsRepository
+                .findFirstByOrgIdAndDeptIdAndUserIdAndCallDateAndCallTimeOrderByIdDesc(
+                        orgId, deptId, userId, callDate, callTime)
+                .orElseGet(CallSystemStatistics::new);
+        systemStatistics.setCallDate(callDate);
+        systemStatistics.setCallTime(callTime);
         systemStatistics.setTotalCustomers(systemStatisticsInfo.importedData().intValue());
         systemStatistics.setCalledCustomers(systemStatisticsInfo.calledData().intValue());
         systemStatistics.setConnectCount(systemStatisticsInfo.connectedData().intValue());
         systemStatistics.setDuration(systemStatisticsInfo.duration().intValue());
-        systemStatistics.setOrgId(systemStatisticsInfo.orgId());
-        systemStatistics.setDeptId(systemStatisticsInfo.deptId());
-        systemStatistics.setUserId(systemStatisticsInfo.userId());
+        systemStatistics.setOrgId(orgId);
+        systemStatistics.setDeptId(deptId);
+        systemStatistics.setUserId(userId);
         systemStatistics.setConcurrent(buildCurrentConcurrent(systemStatisticsInfo,runningConcurrent));
         callSystemStatisticsRepository.save(systemStatistics);
     }

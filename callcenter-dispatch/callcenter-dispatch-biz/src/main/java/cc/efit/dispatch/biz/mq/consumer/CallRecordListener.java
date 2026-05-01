@@ -34,15 +34,22 @@ public class CallRecordListener {
     public void handlerCallRecord(String callRecord) {
         log.info("收到通话记录mq:{}",callRecord);
         DialProcessSession session = JsonUtils.parseObject(callRecord, DialProcessSession.class);
+        if (session == null) {
+            log.warn("通话记录反序列化为空，跳过");
+            return;
+        }
         String callId = session.getCallId();
+        if (callId == null || callId.isEmpty()) {
+            log.warn("通话记录 callId 为空，跳过");
+            return;
+        }
         try {
-            boolean handler = redisUtils.sHasKey(CallRecordConstant.CALL_RECORD_SET_KEY, callId);
-            if (handler) {
-                //简单处理下，可能还会有原子问题，通话记录已经处理过 如果使用redisson加锁应该可以解决
-                log.info("通话记录已经处理过:{}",callId);
+            // SADD 返回新增成员数：并发消费下仅首个实例返回 1，其余返回 0，避免「先判是否存在再写入」的竞态
+            long added = redisUtils.sSet(CallRecordConstant.CALL_RECORD_SET_KEY, callId);
+            if (added == 0L) {
+                log.info("通话记录已处理或正在被处理，跳过:{}", callId);
                 return;
             }
-            redisUtils.sSet(CallRecordConstant.CALL_RECORD_SET_KEY, callId);
             releaseTaskConcurrent(session.getTaskId(), session.isReleaseSemaphore());
 
             log.info("处理通话记录mq:{}",callId);

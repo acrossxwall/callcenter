@@ -81,4 +81,16 @@ public class DispatchRedisKeyConstant {
      */
     public static final String DISPATCH_ADJUST_LINE_REDUCE_TASK_SEMAPHORE  = "dispatch:adjust:line:reduce:task:%s:%s:semaphore";
 
+    // ---------- XXL-JOB 多实例下仅单节点执行（与调度中心路由策略配合） ----------
+    /** dispatchCallTask */
+    public static final String DISPATCH_XXL_JOB_DISPATCH_CALL_TASK_LOCK = "dispatch:xxl:job:dispatchCallTask:lock";
+    /** checkCallTaskStatus */
+    public static final String DISPATCH_XXL_JOB_CHECK_CALL_TASK_STATUS_LOCK = "dispatch:xxl:job:checkCallTaskStatus:lock";
+    /** callTaskStatistics */
+    public static final String DISPATCH_XXL_JOB_CALL_TASK_STATISTICS_LOCK = "dispatch:xxl:job:callTaskStatistics:lock";
+    /** callSystemStatistics */
+    public static final String DISPATCH_XXL_JOB_CALL_SYSTEM_STATISTICS_LOCK = "dispatch:xxl:job:callSystemStatistics:lock";
+    /** releaseCallResource */
+    public static final String DISPATCH_XXL_JOB_RELEASE_CALL_RESOURCE_LOCK = "dispatch:xxl:job:releaseCallResource:lock";
+
 }
